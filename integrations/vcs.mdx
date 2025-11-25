@@ -1,0 +1,287 @@
+---
+title: Version Control
+description: 'Connect VCS for code security and SBOM generation'
+---
+
+## Overview
+
+Version control integrations connect Bastion to your code repositories. Enable dependency scanning, SBOM generation, and code security monitoring.
+
+## Supported Platforms
+
+<CardGroup cols={2}>
+  <Card title="GitHub" icon="github">
+    GitHub Cloud and Enterprise
+  </Card>
+  <Card title="GitLab" icon="gitlab">
+    GitLab SaaS and Self-Managed
+  </Card>
+</CardGroup>
+
+## Benefits
+
+| Feature | Benefit |
+|---------|---------|
+| **SBOM Generation** | Software bill of materials |
+| **Dependency Scanning** | Find vulnerable packages |
+| **Secret Detection** | Identify exposed secrets |
+| **Code Analysis** | Security code review |
+
+## GitHub
+
+### Prerequisites
+
+- GitHub organization admin
+- GitHub App installation permissions
+
+### Setup Steps
+
+<Steps>
+  <Step title="Install GitHub App">
+    Install Bastion app in your organization.
+  </Step>
+  <Step title="Select Repositories">
+    Choose which repos to monitor.
+  </Step>
+  <Step title="Configure Features">
+    Enable desired security features.
+  </Step>
+  <Step title="Initial Scan">
+    Bastion scans selected repositories.
+  </Step>
+</Steps>
+
+### GitHub App Permissions
+
+| Permission | Purpose |
+|------------|---------|
+| **Contents: Read** | Read code and manifests |
+| **Metadata: Read** | Repository information |
+| **Pull Requests: Write** | Create fix PRs (optional) |
+| **Security Events: Read** | Dependabot alerts |
+
+### Configuration
+
+| Setting | Description |
+|---------|-------------|
+| **Repositories** | All or selected repos |
+| **Branch** | Default branch to scan |
+| **Auto-PR** | Create fix pull requests |
+| **Webhooks** | Real-time scanning |
+
+## GitLab
+
+### Prerequisites
+
+- GitLab group/project access
+- Personal access token or OAuth
+
+### Setup Steps
+
+<Steps>
+  <Step title="Generate Token">
+    Create access token with required scopes.
+  </Step>
+  <Step title="Enter Credentials">
+    Input GitLab URL and token.
+  </Step>
+  <Step title="Select Projects">
+    Choose projects to monitor.
+  </Step>
+  <Step title="Configure">
+    Set up scanning options.
+  </Step>
+</Steps>
+
+### Required Scopes
+
+| Scope | Purpose |
+|-------|---------|
+| `read_api` | API access |
+| `read_repository` | Code access |
+| `read_registry` | Container access |
+
+### Configuration
+
+| Setting | Description |
+|---------|-------------|
+| **Projects** | All or selected |
+| **Groups** | Monitor entire groups |
+| **Self-Hosted** | Custom GitLab URL |
+
+## Features
+
+### SBOM Generation
+
+Generate Software Bill of Materials:
+
+- All direct dependencies
+- Transitive dependencies
+- Versions and licenses
+- Standard formats (SPDX, CycloneDX)
+
+### Dependency Scanning
+
+Continuous vulnerability detection:
+
+| Ecosystem | Support |
+|-----------|---------|
+| **npm/yarn** | Full |
+| **pip/poetry** | Full |
+| **Maven/Gradle** | Full |
+| **Go modules** | Full |
+| **Cargo** | Full |
+| **NuGet** | Full |
+
+### Scanning Process
+
+<Steps>
+  <Step title="Detect Manifests">
+    Find package.json, requirements.txt, etc.
+  </Step>
+  <Step title="Resolve Dependencies">
+    Build complete dependency tree.
+  </Step>
+  <Step title="Check Vulnerabilities">
+    Query CVE databases.
+  </Step>
+  <Step title="Report">
+    Generate findings and recommendations.
+  </Step>
+</Steps>
+
+### Secret Detection
+
+Find exposed secrets:
+
+- API keys
+- Passwords
+- Private keys
+- Access tokens
+- Connection strings
+
+## Scan Triggers
+
+### When Scans Run
+
+| Trigger | Description |
+|---------|-------------|
+| **Push** | On code push (webhook) |
+| **Schedule** | Daily scheduled scan |
+| **Manual** | On-demand scan |
+| **PR** | Pull request scanning |
+
+### Webhook Configuration
+
+Enable real-time scanning:
+
+1. Go to integration settings
+2. Enable webhooks
+3. Bastion configures automatically
+4. Scans trigger on push
+
+## Results
+
+### Viewing Results
+
+Results appear in Code Security module:
+
+- Vulnerabilities by severity
+- Dependencies with issues
+- SBOM inventory
+- License compliance
+
+### Issue Details
+
+For each vulnerability:
+
+- CVE ID and description
+- Affected package and version
+- Fixed version (if available)
+- Remediation steps
+- CVSS score
+
+## Pull Request Integration
+
+### Auto-Fix PRs
+
+Bastion can create fix PRs:
+
+1. Enable auto-PR in settings
+2. Vulnerability detected
+3. If fix available, PR created
+4. Review and merge
+
+### PR Comments
+
+Add vulnerability info to PRs:
+
+- New vulnerabilities introduced
+- Existing vulnerabilities
+- Recommendations
+
+## Branch Protection
+
+### Scanning in CI/CD
+
+Add Bastion to CI/CD:
+
+- GitHub Actions
+- GitLab CI
+- Custom pipelines
+
+### Status Checks
+
+Block merges with vulnerabilities:
+
+1. Enable status checks
+2. Configure severity threshold
+3. PRs blocked until resolved
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Repos Not Appearing" icon="folder">
+    - Verify installation scope
+    - Check permissions granted
+    - Review organization settings
+  </Accordion>
+  <Accordion title="Scans Not Running" icon="sync">
+    - Check webhook configuration
+    - Verify token permissions
+    - Review scan logs
+  </Accordion>
+  <Accordion title="Missing Dependencies" icon="box">
+    - Ensure lock files are present
+    - Check manifest file locations
+    - Verify ecosystem support
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Include All Repos" icon="layer-group">
+    Scan all repositories, including internal tools and scripts.
+  </Accordion>
+  <Accordion title="Enable Webhooks" icon="bolt">
+    Real-time scanning catches issues faster than scheduled scans.
+  </Accordion>
+  <Accordion title="Use Lock Files" icon="lock">
+    Commit lock files for accurate transitive dependency tracking.
+  </Accordion>
+  <Accordion title="Act on Findings" icon="wrench">
+    Regularly review and remediate discovered vulnerabilities.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Code Security" icon="code" href="/infrastructure/code-security">
+    View code security results
+  </Card>
+  <Card title="Admin" icon="cog" href="/admin/overview">
+    Configure admin settings
+  </Card>
+</CardGroup>

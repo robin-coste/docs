@@ -1,0 +1,278 @@
+---
+title: Typosquatting
+description: 'Detect and manage domain impersonation attempts'
+---
+
+## Overview
+
+Typosquatting detection identifies domain names that impersonate your brand. Detect phishing infrastructure, protect customers, and take down malicious domains.
+
+## What is Typosquatting?
+
+### Definition
+
+Typosquatting uses domains similar to legitimate ones:
+
+- **Typos**: gooogle.com, gogle.com
+- **Character substitution**: g00gle.com, goog1e.com
+- **Homoglyphs**: gοοgle.com (Greek letters)
+- **TLD variations**: google.co, google.net
+- **Additions**: google-login.com, google-secure.com
+
+### Attacker Goals
+
+| Goal | Example |
+|------|---------|
+| **Phishing** | Fake login pages |
+| **Malware** | Drive-by downloads |
+| **BEC** | Email impersonation |
+| **Traffic Theft** | Ad revenue from typos |
+| **Brand Damage** | Defamatory content |
+
+## Detection
+
+### How Detection Works
+
+<Steps>
+  <Step title="Generate Variations">
+    Create possible typosquatting variations.
+  </Step>
+  <Step title="Check Registration">
+    Query if domains are registered.
+  </Step>
+  <Step title="Analyze Content">
+    Check what's hosted (if anything).
+  </Step>
+  <Step title="Assess Risk">
+    Determine threat level.
+  </Step>
+  <Step title="Alert">
+    Notify for action.
+  </Step>
+</Steps>
+
+### Detection Methods
+
+| Method | What It Finds |
+|--------|---------------|
+| **Character Swap** | Transposed letters |
+| **Missing Character** | Dropped letters |
+| **Extra Character** | Added letters |
+| **Adjacent Key** | Keyboard typos |
+| **Homoglyph** | Look-alike characters |
+| **Bit Flip** | Single bit changes |
+| **TLD Swap** | Different extensions |
+
+## Monitoring Dashboard
+
+### Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Total Variations** | Possible typosquat domains |
+| **Registered** | Actually registered |
+| **Active** | Hosting content |
+| **Malicious** | Confirmed threats |
+| **Taken Down** | Successfully removed |
+
+### Domain List
+
+View detected domains:
+
+| Column | Description |
+|--------|-------------|
+| **Domain** | Typosquatted domain |
+| **Similarity** | How close to original |
+| **Status** | Active, parked, for sale |
+| **Content** | What's hosted |
+| **Risk** | Threat level |
+| **Actions** | Takedown status |
+
+## Risk Assessment
+
+### Risk Factors
+
+| Factor | Impact |
+|--------|--------|
+| **Content Type** | Phishing > parked |
+| **MX Records** | Email-enabled domains |
+| **SSL Certificate** | Looks more legitimate |
+| **Traffic** | Higher visibility |
+| **Similarity** | More confusing |
+
+### Risk Levels
+
+| Level | Description | Action |
+|-------|-------------|--------|
+| **Critical** | Active phishing | Immediate takedown |
+| **High** | Suspicious content | Urgent review |
+| **Medium** | Parked with content | Monitor |
+| **Low** | Parked, no content | Watch |
+| **Info** | For sale | Optional acquisition |
+
+## Domain Details
+
+### Viewing Details
+
+Click on a domain to see:
+
+- Registration information
+- DNS records
+- Screenshot (if active)
+- Historical data
+- Similar domains
+
+### WHOIS Information
+
+When available:
+
+- Registrar
+- Registration date
+- Expiration date
+- Registrant info (if not private)
+
+### Content Analysis
+
+For active domains:
+
+- Screenshot
+- Technologies detected
+- Similar to your branding
+- Forms or login pages
+- Malware indicators
+
+## Takedown Process
+
+### Takedown Options
+
+| Method | Speed | Success Rate |
+|--------|-------|--------------|
+| **Registrar Report** | 1-7 days | Medium |
+| **Hosting Report** | 1-3 days | High |
+| **DMCA Notice** | 3-10 days | Medium |
+| **Legal Action** | Weeks | High |
+| **Domain Acquisition** | Varies | High (if for sale) |
+
+### Initiating Takedown
+
+1. Select domain
+2. Click **Initiate Takedown**
+3. Choose method
+4. Provide evidence
+5. Submit request
+6. Track status
+
+### Takedown Workflow
+
+```
+Identified → Reported → Acknowledged → In Progress → Completed
+                              ↓
+                        Escalated
+```
+
+### Evidence Package
+
+Takedown requests include:
+
+- Domain similarity evidence
+- Screenshots
+- Trademark documentation
+- Abuse evidence (if phishing)
+
+## Monitoring Configuration
+
+### Adding Protected Domains
+
+1. Navigate to **Infrastructure** → **Typosquatting**
+2. Click **Add Domain**
+3. Enter your domain
+4. Configure monitoring options
+5. Save
+
+### Monitoring Options
+
+| Option | Description |
+|--------|-------------|
+| **Frequency** | How often to scan |
+| **Depth** | Number of variations |
+| **Alerts** | Notification settings |
+| **Auto-Takedown** | Automatic reporting |
+
+## Alerting
+
+### Alert Configuration
+
+Set alerts for:
+
+| Alert Type | Trigger |
+|------------|---------|
+| **New Registration** | Typosquat domain registered |
+| **Content Change** | Previously parked now active |
+| **Phishing Detected** | Login form detected |
+| **Email Enabled** | MX records added |
+
+## Reporting
+
+### Typosquatting Reports
+
+Generate reports:
+
+- Current threats
+- Takedown history
+- Trend analysis
+- Risk summary
+
+### Compliance Evidence
+
+Documentation for:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC3.2 |
+| **ISO 27001** | A.6.1.2 |
+
+## Proactive Protection
+
+### Domain Acquisition
+
+Consider acquiring:
+
+- Common typos of your domain
+- Variations in popular TLDs
+- Homoglyph versions
+
+### DMARC/DKIM/SPF
+
+Email authentication prevents:
+
+- Email spoofing
+- Brand impersonation
+- Phishing effectiveness
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Monitor Continuously" icon="sync">
+    New typosquat domains are registered constantly. Continuous monitoring is essential.
+  </Accordion>
+  <Accordion title="Act Quickly" icon="bolt">
+    The faster you take down threats, the fewer victims. Prioritize active phishing.
+  </Accordion>
+  <Accordion title="Register Defensively" icon="shield">
+    Own common typos of your domain before attackers do.
+  </Accordion>
+  <Accordion title="Educate Users" icon="graduation-cap">
+    Train employees and customers to verify URLs before entering credentials.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Assets" icon="server" href="/infrastructure/assets">
+    Manage your domain inventory
+  </Card>
+  <Card title="Phishing Campaigns" icon="fish" href="/employees/phishing-campaigns">
+    Train employees on phishing
+  </Card>
+</CardGroup>

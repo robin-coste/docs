@@ -1,0 +1,217 @@
+---
+title: Integrations Overview
+description: 'Connect your existing tools to Bastion for automated security management'
+---
+
+## Introduction
+
+Integrations connect Bastion to your existing tools and services. Enable automated data collection, policy enforcement, and streamlined workflows.
+
+## Integration Categories
+
+<CardGroup cols={2}>
+  <Card title="Identity Providers" icon="id-card" href="/integrations/identity">
+    Azure AD, Okta, Google Workspace - Sync users and manage access
+  </Card>
+  <Card title="ITSM" icon="ticket" href="/integrations/itsm">
+    Jira, ServiceNow - Create tickets and track remediation
+  </Card>
+  <Card title="Cloud Services" icon="cloud" href="/integrations/cloud">
+    Microsoft 365, Google Workspace - Email and app security
+  </Card>
+  <Card title="Version Control" icon="code-branch" href="/integrations/vcs">
+    GitHub, GitLab - Code security and SBOM
+  </Card>
+</CardGroup>
+
+## Why Integrate?
+
+### Automation Benefits
+
+| Benefit | Description |
+|---------|-------------|
+| **Data Sync** | Automatic user and asset import |
+| **Evidence Collection** | Compliance evidence gathered automatically |
+| **Policy Enforcement** | Security controls applied via integrations |
+| **Workflow Automation** | Tickets, alerts, and actions triggered |
+
+### Manual vs. Integrated
+
+| Aspect | Manual | Integrated |
+|--------|--------|------------|
+| **User Management** | CSV import | Real-time sync |
+| **Evidence** | Upload manually | Auto-collected |
+| **Tickets** | Create manually | Auto-generated |
+| **Alerts** | Email/Slack | Direct integration |
+
+## Integration Hub
+
+### Viewing Integrations
+
+Navigate to **Integrations** to see:
+
+- Available integrations
+- Connected integrations
+- Connection status
+- Last sync time
+
+### Integration Status
+
+| Status | Meaning |
+|--------|---------|
+| **Connected** | Active and syncing |
+| **Warning** | Issues detected |
+| **Error** | Connection failed |
+| **Not Connected** | Available but not set up |
+
+## Connecting Integrations
+
+### General Process
+
+<Steps>
+  <Step title="Select Integration">
+    Choose the integration to connect.
+  </Step>
+  <Step title="Authenticate">
+    Complete OAuth flow or enter credentials.
+  </Step>
+  <Step title="Configure">
+    Set up sync options and scope.
+  </Step>
+  <Step title="Test">
+    Verify connection and data flow.
+  </Step>
+  <Step title="Enable">
+    Activate the integration.
+  </Step>
+</Steps>
+
+### Authentication Methods
+
+| Method | Description |
+|--------|-------------|
+| **OAuth** | Authorize via provider |
+| **API Key** | Enter API credentials |
+| **Service Account** | Use service account |
+| **Certificate** | Upload certificate |
+
+## Managing Integrations
+
+### Configuration
+
+Each integration has settings:
+
+- Sync frequency
+- Data scope
+- Feature toggles
+- Credential management
+
+### Sync Settings
+
+| Setting | Options |
+|---------|---------|
+| **Frequency** | Real-time, hourly, daily |
+| **Scope** | All data, specific groups |
+| **Direction** | One-way, two-way |
+
+### Testing Connections
+
+Test integration health:
+
+1. Open integration
+2. Click **Test Connection**
+3. Review results
+4. Address any issues
+
+### Disconnecting
+
+To remove an integration:
+
+1. Open integration
+2. Click **Disconnect**
+3. Confirm removal
+4. Data handling options shown
+
+<Warning>
+  Disconnecting may remove synced data or disable features that depend on the integration.
+</Warning>
+
+## Permissions
+
+### Required Permissions
+
+Each integration requires specific permissions:
+
+- **Read** - View data
+- **Write** - Make changes
+- **Admin** - Full access
+
+### Least Privilege
+
+Request minimum necessary permissions:
+
+- Review permission requests carefully
+- Only enable needed features
+- Regular permission audits
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Connection Failed" icon="plug">
+    - Verify credentials
+    - Check network connectivity
+    - Confirm API availability
+    - Review permission grants
+  </Accordion>
+  <Accordion title="Sync Not Working" icon="sync">
+    - Check sync schedule
+    - Review error logs
+    - Verify data exists in source
+    - Check filter configuration
+  </Accordion>
+  <Accordion title="Missing Data" icon="database">
+    - Verify scope includes data
+    - Check filter settings
+    - Confirm permissions
+    - Review sync history
+  </Accordion>
+</AccordionGroup>
+
+### Integration Logs
+
+View integration activity:
+
+1. Open integration
+2. Click **Logs**
+3. Review sync history
+4. Filter by status/date
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Connect Core Integrations First" icon="arrow-right">
+    Start with identity provider and email. These enable the most features.
+  </Accordion>
+  <Accordion title="Review Permissions" icon="shield">
+    Understand what access each integration requires before connecting.
+  </Accordion>
+  <Accordion title="Monitor Health" icon="heartbeat">
+    Check integration status regularly. Failed integrations mean missing data.
+  </Accordion>
+  <Accordion title="Keep Credentials Updated" icon="key">
+    Rotate API keys and update credentials before expiration.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Identity Providers" icon="id-card" href="/integrations/identity">
+    Connect your identity provider
+  </Card>
+  <Card title="Cloud Services" icon="cloud" href="/integrations/cloud">
+    Connect cloud services
+  </Card>
+</CardGroup>

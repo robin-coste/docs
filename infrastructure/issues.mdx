@@ -1,0 +1,311 @@
+---
+title: Issues
+description: 'Track and remediate security findings across your infrastructure'
+---
+
+## Overview
+
+The Issues page centralizes security findings from your attack surface. Track vulnerabilities, misconfigurations, and exposures with a structured remediation workflow.
+
+## Issue Sources
+
+### Discovery Findings
+
+Issues discovered through scanning:
+
+- Open ports exposing services
+- Outdated software versions
+- Misconfigured servers
+- Expired certificates
+- Missing security headers
+
+### Penetration Testing
+
+Findings from pentest campaigns:
+
+- Exploitable vulnerabilities
+- Business logic flaws
+- Authentication issues
+- Injection points
+
+### Manual Reports
+
+User-reported issues:
+
+- Bug bounty submissions
+- Internal discoveries
+- Third-party notifications
+
+## Issue Dashboard
+
+### Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Total Open** | Unresolved issues |
+| **Critical/High** | Severe issues |
+| **Aging** | Issues past SLA |
+| **Resolved** | Recently fixed |
+
+### Views
+
+| View | Content |
+|------|---------|
+| **All Issues** | Complete issue list |
+| **My Issues** | Assigned to you |
+| **Critical** | Highest severity only |
+| **Aging** | Past remediation SLA |
+
+## Issue Severity
+
+### Severity Levels
+
+| Level | Description | SLA |
+|-------|-------------|-----|
+| **Critical** | Immediate exploitation risk | 24 hours |
+| **High** | Significant risk | 7 days |
+| **Medium** | Moderate risk | 30 days |
+| **Low** | Minimal risk | 90 days |
+| **Informational** | No direct risk | No SLA |
+
+### Severity Factors
+
+What determines severity:
+
+- Exploitability
+- Data exposure risk
+- System criticality
+- Internet accessibility
+- Existing controls
+
+## Issue Details
+
+### Issue Fields
+
+| Field | Description |
+|-------|-------------|
+| **Title** | Brief description |
+| **Severity** | Risk level |
+| **Asset** | Affected asset |
+| **Category** | Issue type |
+| **Description** | Full details |
+| **Evidence** | Supporting proof |
+| **Remediation** | Fix instructions |
+| **Status** | Current state |
+
+### Evidence
+
+Evidence includes:
+
+- Screenshots
+- Request/response logs
+- Tool output
+- Steps to reproduce
+
+## Issue Workflow
+
+### Status Flow
+
+```
+New → Confirmed → In Progress → Fixed → Verified → Closed
+         ↓                        ↓
+    Won't Fix               Reopened
+```
+
+### Status Definitions
+
+| Status | Meaning |
+|--------|---------|
+| **New** | Just discovered |
+| **Confirmed** | Verified as valid |
+| **In Progress** | Being remediated |
+| **Fixed** | Remediation applied |
+| **Verified** | Fix confirmed working |
+| **Closed** | Issue resolved |
+| **Won't Fix** | Accepted risk |
+| **Reopened** | Issue returned |
+
+## Managing Issues
+
+### Triaging Issues
+
+When new issue arrives:
+
+1. Review issue details
+2. Verify it's valid
+3. Assess severity
+4. Assign to owner
+5. Set target date
+
+### Assigning Issues
+
+1. Open issue
+2. Click **Assign**
+3. Select owner
+4. Add notes
+5. Save
+
+### Updating Status
+
+1. Open issue
+2. Click **Update Status**
+3. Select new status
+4. Add comment explaining change
+5. Save
+
+## Remediation
+
+### Remediation Guidance
+
+Each issue includes:
+
+- Description of the problem
+- Why it matters
+- How to fix it
+- Verification steps
+
+### Remediation Steps
+
+<Steps>
+  <Step title="Understand">
+    Review issue details and impact.
+  </Step>
+  <Step title="Plan">
+    Determine remediation approach.
+  </Step>
+  <Step title="Implement">
+    Apply the fix.
+  </Step>
+  <Step title="Verify">
+    Confirm the issue is resolved.
+  </Step>
+  <Step title="Close">
+    Mark issue as closed.
+  </Step>
+</Steps>
+
+### Verification
+
+Before closing:
+
+1. Re-test the vulnerability
+2. Confirm it's not exploitable
+3. Document verification method
+4. Request independent verification (for high/critical)
+
+## False Positives
+
+### Handling False Positives
+
+When a finding isn't valid:
+
+1. Open issue
+2. Click **Mark as False Positive**
+3. Provide explanation
+4. Add evidence
+5. Submit
+
+### False Positive Review
+
+False positives are reviewed:
+
+- Automated checks updated
+- Prevent future false positives
+- Maintain accuracy
+
+## Risk Acceptance
+
+### When to Accept Risk
+
+Accept risk when:
+
+- Remediation cost exceeds risk
+- Compensating controls exist
+- Business requires the configuration
+- Technical limitations prevent fix
+
+### Accepting Risk
+
+1. Open issue
+2. Click **Accept Risk**
+3. Provide justification
+4. Set review date
+5. Get approval (if required)
+6. Submit
+
+### Risk Acceptance Review
+
+Accepted risks are reviewed:
+
+- Periodic re-evaluation
+- Manager approval
+- Documentation for audits
+
+## Reporting
+
+### Issue Reports
+
+Generate reports:
+
+- Open issues summary
+- Issues by severity
+- Issues by asset
+- Aging report
+- Trend analysis
+
+### Compliance Evidence
+
+Issue management provides evidence for:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC7.1, CC7.2 |
+| **ISO 27001** | A.12.6.1 |
+| **PCI DSS** | 6.1, 11.2 |
+
+## Integration
+
+### ITSM Integration
+
+Create tickets in:
+
+- Jira
+- ServiceNow
+- Linear
+
+### Alerting
+
+Configure alerts for:
+
+- New critical issues
+- SLA breaches
+- Status changes
+- Issue reopened
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Triage Quickly" icon="bolt">
+    New issues should be triaged within 24 hours. Assign owners promptly.
+  </Accordion>
+  <Accordion title="Meet SLAs" icon="clock">
+    Track SLA compliance. Escalate aging issues before they breach.
+  </Accordion>
+  <Accordion title="Verify Fixes" icon="check-double">
+    Always verify remediation. Don't just trust "it's fixed."
+  </Accordion>
+  <Accordion title="Document Everything" icon="file-alt">
+    Maintain clear records for audit purposes.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Code Security" icon="code" href="/infrastructure/code-security">
+    Monitor code dependencies
+  </Card>
+  <Card title="Penetration Testing" icon="user-secret" href="/infrastructure/penetration-testing">
+    Manage pentest programs
+  </Card>
+</CardGroup>

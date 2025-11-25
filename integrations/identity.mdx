@@ -1,0 +1,275 @@
+---
+title: Identity Providers
+description: 'Connect identity providers to sync users and enable SSO'
+---
+
+## Overview
+
+Identity provider integrations sync your employee directory and enable single sign-on (SSO). This is typically the first integration to set up.
+
+## Supported Providers
+
+<CardGroup cols={3}>
+  <Card title="Azure AD" icon="microsoft">
+    Microsoft Azure Active Directory
+  </Card>
+  <Card title="Okta" icon="key">
+    Okta Identity Cloud
+  </Card>
+  <Card title="Google" icon="google">
+    Google Workspace Directory
+  </Card>
+</CardGroup>
+
+## Benefits
+
+| Feature | Benefit |
+|---------|---------|
+| **User Sync** | Automatic employee directory |
+| **SSO** | Single sign-on to Bastion |
+| **Groups** | Sync groups for targeting |
+| **Lifecycle** | Auto-offboarding when users leave |
+
+## Azure Active Directory
+
+### Prerequisites
+
+- Azure AD tenant admin access
+- Application registration permissions
+
+### Setup Steps
+
+<Steps>
+  <Step title="Create App Registration">
+    In Azure Portal, create a new application registration.
+  </Step>
+  <Step title="Configure Permissions">
+    Grant required Microsoft Graph permissions.
+  </Step>
+  <Step title="Generate Credentials">
+    Create client secret or certificate.
+  </Step>
+  <Step title="Connect in Bastion">
+    Enter credentials in Bastion integration settings.
+  </Step>
+  <Step title="Configure Sync">
+    Set up user and group sync options.
+  </Step>
+</Steps>
+
+### Required Permissions
+
+| Permission | Type | Purpose |
+|------------|------|---------|
+| `User.Read.All` | Application | Read user profiles |
+| `Group.Read.All` | Application | Read group memberships |
+| `Directory.Read.All` | Application | Read directory data |
+
+### Configuration Options
+
+| Setting | Description |
+|---------|-------------|
+| **User Scope** | All users or specific groups |
+| **Group Sync** | Which groups to sync |
+| **Attributes** | User attributes to import |
+| **Sync Frequency** | How often to sync |
+
+## Okta
+
+### Prerequisites
+
+- Okta admin access
+- API token generation permission
+
+### Setup Steps
+
+<Steps>
+  <Step title="Create API Token">
+    In Okta Admin, create a new API token.
+  </Step>
+  <Step title="Note Okta Domain">
+    Record your Okta domain (e.g., yourcompany.okta.com).
+  </Step>
+  <Step title="Connect in Bastion">
+    Enter domain and API token.
+  </Step>
+  <Step title="Configure Sync">
+    Set up user and group sync options.
+  </Step>
+</Steps>
+
+### API Token Permissions
+
+The API token inherits the admin's permissions. Use a service account with:
+
+- Read-only admin access
+- User and group read permissions
+
+### Configuration Options
+
+| Setting | Description |
+|---------|-------------|
+| **User Filter** | Which users to sync |
+| **Group Filter** | Which groups to sync |
+| **Deprovisioning** | Action when user disabled |
+
+## Google Workspace
+
+### Prerequisites
+
+- Google Workspace super admin access
+- Domain-wide delegation enabled
+
+### Setup Steps
+
+<Steps>
+  <Step title="Create Service Account">
+    In Google Cloud Console, create a service account.
+  </Step>
+  <Step title="Enable Domain Delegation">
+    Grant domain-wide delegation to the service account.
+  </Step>
+  <Step title="Add API Scopes">
+    Add required Admin SDK scopes.
+  </Step>
+  <Step title="Connect in Bastion">
+    Upload service account credentials.
+  </Step>
+</Steps>
+
+### Required Scopes
+
+| Scope | Purpose |
+|-------|---------|
+| `admin.directory.user.readonly` | Read user profiles |
+| `admin.directory.group.readonly` | Read groups |
+| `admin.directory.orgunit.readonly` | Read org units |
+
+### Configuration Options
+
+| Setting | Description |
+|---------|-------------|
+| **Org Units** | Which org units to sync |
+| **Groups** | Which groups to sync |
+| **Suspended Users** | Include or exclude |
+
+## User Sync
+
+### Synced Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| **Email** | Primary identifier |
+| **Name** | First and last name |
+| **Department** | Organizational unit |
+| **Title** | Job title |
+| **Manager** | Reporting relationship |
+| **Status** | Active/inactive |
+
+### Sync Behavior
+
+| Event | Bastion Action |
+|-------|----------------|
+| **New User** | Create employee record |
+| **User Updated** | Update attributes |
+| **User Disabled** | Mark for offboarding |
+| **User Deleted** | Archive employee |
+
+### Handling Conflicts
+
+When data conflicts:
+
+- Identity provider is source of truth
+- Manual edits preserved (configurable)
+- Conflicts logged for review
+
+## Group Sync
+
+### Synced Groups
+
+Sync groups for:
+
+- Training assignment
+- Phishing campaign targeting
+- Access reviews
+- Policy application
+
+### Group Mapping
+
+Map provider groups to Bastion:
+
+| Provider Group | Bastion Group |
+|----------------|---------------|
+| `Engineering` | Engineering Team |
+| `Sales` | Sales Team |
+| `All Employees` | Everyone |
+
+## SSO Configuration
+
+### SAML SSO
+
+Configure SAML for single sign-on:
+
+1. Download Bastion metadata
+2. Configure provider with metadata
+3. Upload provider metadata to Bastion
+4. Test SSO flow
+
+### OIDC SSO
+
+Configure OIDC authentication:
+
+1. Register Bastion in provider
+2. Note client ID and secret
+3. Configure in Bastion settings
+4. Test authentication
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Users Not Syncing" icon="users">
+    - Verify filter includes users
+    - Check API permissions
+    - Review sync logs
+    - Confirm network connectivity
+  </Accordion>
+  <Accordion title="SSO Failing" icon="lock">
+    - Verify SAML/OIDC configuration
+    - Check certificate validity
+    - Review attribute mapping
+    - Test in incognito mode
+  </Accordion>
+  <Accordion title="Groups Missing" icon="layer-group">
+    - Verify group filter settings
+    - Check group read permissions
+    - Review group type compatibility
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use Service Accounts" icon="robot">
+    Use dedicated service accounts, not personal admin accounts.
+  </Accordion>
+  <Accordion title="Sync Incrementally" icon="sync">
+    Start with a subset of users to verify before full sync.
+  </Accordion>
+  <Accordion title="Monitor Sync Health" icon="heartbeat">
+    Watch for sync failures and address quickly.
+  </Accordion>
+  <Accordion title="Test Offboarding" icon="user-minus">
+    Verify offboarding works correctly before production.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="ITSM" icon="ticket" href="/integrations/itsm">
+    Connect ticket systems
+  </Card>
+  <Card title="Cloud Services" icon="cloud" href="/integrations/cloud">
+    Connect cloud services
+  </Card>
+</CardGroup>

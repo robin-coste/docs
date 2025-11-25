@@ -1,0 +1,305 @@
+---
+title: Assets
+description: 'Discover and manage your external-facing digital assets'
+---
+
+## Overview
+
+The Assets page provides visibility into your organization's external attack surface. Discover domains, subdomains, IP addresses, and web servers.
+
+## Asset Types
+
+### Domains
+
+Your registered domain names:
+
+- Primary domains (yourcompany.com)
+- Product domains
+- Marketing domains
+- Legacy domains
+
+### Subdomains
+
+Discovered subdomains:
+
+- app.yourcompany.com
+- api.yourcompany.com
+- staging.yourcompany.com
+- internal.yourcompany.com
+
+### IP Addresses
+
+Associated IP addresses:
+
+- Web servers
+- API endpoints
+- Mail servers
+- DNS servers
+
+### Web Servers
+
+Running web services:
+
+- Technologies detected
+- Ports open
+- Certificates
+- Screenshots
+
+## Adding Domains
+
+### Manual Addition
+
+1. Navigate to **Infrastructure** → **Assets**
+2. Click **Add Domain**
+3. Enter domain name
+4. Verify ownership (DNS or file)
+5. Confirm addition
+
+### Domain Verification
+
+Prove domain ownership:
+
+**DNS Verification:**
+```
+Add TXT record: bastion-verify=abc123xyz
+```
+
+**File Verification:**
+```
+Create file: /.well-known/bastion-verify.txt
+Content: abc123xyz
+```
+
+## Discovery
+
+### How Discovery Works
+
+<Steps>
+  <Step title="DNS Enumeration">
+    Query DNS records for subdomains.
+  </Step>
+  <Step title="Certificate Transparency">
+    Search CT logs for issued certificates.
+  </Step>
+  <Step title="Web Crawling">
+    Follow links to discover related assets.
+  </Step>
+  <Step title="Port Scanning">
+    Check for open ports and services.
+  </Step>
+  <Step title="Fingerprinting">
+    Identify technologies and versions.
+  </Step>
+</Steps>
+
+### Discovery Methods
+
+| Method | What It Finds |
+|--------|---------------|
+| **DNS Records** | A, AAAA, CNAME, MX, TXT |
+| **CT Logs** | All issued SSL certificates |
+| **Brute Force** | Common subdomain names |
+| **Historical Data** | Previously seen subdomains |
+| **Web Scraping** | Links in web pages |
+
+### Running Discovery
+
+1. Select domain
+2. Click **Run Discovery**
+3. Choose depth (quick/standard/deep)
+4. Wait for completion
+5. Review new findings
+
+## Asset Details
+
+### Domain Details
+
+Click on a domain to view:
+
+- Registrar information
+- DNS records
+- SSL certificates
+- Associated subdomains
+- Historical data
+
+### Subdomain Details
+
+For each subdomain:
+
+| Field | Description |
+|-------|-------------|
+| **IP Address** | Resolved IP |
+| **Status** | Active/Inactive |
+| **Technologies** | Detected stack |
+| **Ports** | Open ports |
+| **Last Seen** | Recent activity |
+| **Screenshot** | Visual preview |
+
+### IP Address Details
+
+For each IP:
+
+- Hosting provider
+- Location (geo)
+- Open ports
+- Associated domains
+- Service banners
+
+## Screenshots
+
+### Automatic Screenshots
+
+Bastion captures screenshots of web assets:
+
+- Homepage appearance
+- Visual change detection
+- Defacement monitoring
+- Content verification
+
+### Screenshot Gallery
+
+View all screenshots:
+
+1. Go to **Assets** → **Screenshots**
+2. Browse by domain/subdomain
+3. View current and historical
+4. Compare changes over time
+
+## Technology Detection
+
+### Detected Technologies
+
+| Category | Examples |
+|----------|----------|
+| **Web Server** | nginx, Apache, IIS |
+| **Framework** | React, Angular, Django |
+| **CMS** | WordPress, Drupal |
+| **CDN** | Cloudflare, Akamai |
+| **Analytics** | Google Analytics |
+| **Security** | WAF, CAPTCHA |
+
+### Why It Matters
+
+Technology detection helps:
+
+- Identify vulnerable versions
+- Understand attack surface
+- Prioritize patching
+- Plan penetration tests
+
+## Asset Classification
+
+### Status Labels
+
+| Status | Meaning |
+|--------|---------|
+| **Active** | Currently in use |
+| **Inactive** | Not responding |
+| **Unknown** | Needs investigation |
+| **Excluded** | Intentionally ignored |
+
+### Classification
+
+Categorize assets:
+
+- Production
+- Development
+- Staging
+- Legacy
+- Third-party
+
+### Ownership
+
+Assign owners to assets:
+
+1. Select asset
+2. Click **Assign Owner**
+3. Select user/team
+4. Save
+
+## Excluding Assets
+
+### When to Exclude
+
+Exclude assets that are:
+
+- Not owned by your organization
+- Intentionally public
+- Known and accepted risks
+
+### Creating Exclusions
+
+1. Select asset
+2. Click **Exclude**
+3. Provide justification
+4. Set expiration (optional)
+5. Confirm
+
+## Monitoring
+
+### Change Detection
+
+Monitor for changes:
+
+- New subdomains discovered
+- IP address changes
+- Technology changes
+- Certificate expiration
+- New open ports
+
+### Alerts
+
+Configure alerts for:
+
+| Alert Type | Trigger |
+|------------|---------|
+| **New Asset** | New subdomain discovered |
+| **High Risk** | Critical vulnerability found |
+| **Change** | Configuration changed |
+| **Certificate** | SSL expiring soon |
+
+## Reporting
+
+### Asset Reports
+
+Generate reports:
+
+- Full asset inventory
+- New assets this period
+- Asset changes
+- Risk summary
+
+### Export Formats
+
+- PDF report
+- Excel spreadsheet
+- CSV data
+- JSON export
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Regular Discovery" icon="sync">
+    Run discovery regularly. New assets appear as your organization grows.
+  </Accordion>
+  <Accordion title="Verify Unknown Assets" icon="question">
+    Investigate unknown assets. They may be shadow IT or attacker infrastructure.
+  </Accordion>
+  <Accordion title="Assign Ownership" icon="user">
+    Every asset should have an owner responsible for its security.
+  </Accordion>
+  <Accordion title="Remove Unused Assets" icon="trash">
+    Decommission unused assets. Forgotten systems are easy targets.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Issues" icon="exclamation-triangle" href="/infrastructure/issues">
+    Review security findings
+  </Card>
+  <Card title="Code Security" icon="code" href="/infrastructure/code-security">
+    Monitor dependencies
+  </Card>
+</CardGroup>

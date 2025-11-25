@@ -1,0 +1,269 @@
+---
+title: Status Page
+description: 'Communicate system status and incidents to customers'
+---
+
+## Overview
+
+The Status Page provides transparent communication about your system's operational status. Keep customers informed during incidents and scheduled maintenance.
+
+## Why a Status Page?
+
+### Customer Expectations
+
+- **94%** of customers prefer proactive incident communication
+- **Trust increases** with transparent status updates
+- **Support volume decreases** when status is self-service
+
+### Benefits
+
+- Reduce support tickets during incidents
+- Build customer confidence through transparency
+- Meet enterprise customer requirements
+- Provide historical uptime data
+
+## Status Page Features
+
+### Current Status
+
+Display real-time system status:
+
+- Overall system status
+- Individual component status
+- Active incidents
+- Ongoing maintenance
+
+### Status Levels
+
+| Level | Meaning | Display |
+|-------|---------|---------|
+| **Operational** | All systems normal | Green |
+| **Degraded** | Reduced performance | Yellow |
+| **Partial Outage** | Some components affected | Orange |
+| **Major Outage** | Significant impact | Red |
+| **Maintenance** | Planned downtime | Blue |
+
+### Components
+
+Define monitored components:
+
+- API endpoints
+- Web application
+- Database
+- Third-party integrations
+- Regional deployments
+
+## Setting Up Your Status Page
+
+### Basic Configuration
+
+1. Navigate to **Customer Trust** → **Status Page**
+2. Click **Settings**
+3. Configure:
+   - Page title and description
+   - Company branding
+   - Custom domain (optional)
+   - Time zone display
+4. Save changes
+
+### Adding Components
+
+1. Go to **Components**
+2. Click **Add Component**
+3. Enter details:
+   - Name
+   - Description
+   - Component group (optional)
+4. Set initial status
+5. Save
+
+### Component Groups
+
+Organize components logically:
+
+```
+Infrastructure
+├── API
+├── Web Application
+└── Database
+
+Integrations
+├── Payment Processing
+├── Email Service
+└── Authentication
+```
+
+## Incident Management
+
+### Creating an Incident
+
+When an issue occurs:
+
+1. Go to **Status Page** → **Incidents**
+2. Click **Create Incident**
+3. Fill in details:
+   - Title (customer-facing)
+   - Affected components
+   - Impact level
+   - Initial message
+4. Publish incident
+
+### Incident Updates
+
+Keep customers informed with updates:
+
+1. Open active incident
+2. Click **Post Update**
+3. Select update type:
+   - **Investigating** - Looking into the issue
+   - **Identified** - Found the cause
+   - **Monitoring** - Fix implemented, watching
+   - **Resolved** - Issue fixed
+4. Write update message
+5. Post update
+
+### Incident Timeline
+
+Each incident shows:
+
+- Initial report time
+- All updates with timestamps
+- Resolution time
+- Total duration
+
+## Scheduled Maintenance
+
+### Planning Maintenance
+
+Notify customers of planned downtime:
+
+1. Go to **Scheduled Maintenance**
+2. Click **Schedule Maintenance**
+3. Configure:
+   - Title and description
+   - Affected components
+   - Start and end time
+   - Auto-start/end options
+4. Schedule
+
+### Maintenance Notifications
+
+Customers receive notifications:
+
+- When maintenance is scheduled
+- Before maintenance begins (configurable)
+- When maintenance starts
+- When maintenance completes
+
+## Subscriber Management
+
+### Subscription Options
+
+Customers can subscribe for updates:
+
+| Method | Description |
+|--------|-------------|
+| **Email** | Receive email notifications |
+| **SMS** | Text message alerts |
+| **Webhook** | Programmatic notifications |
+| **RSS** | Feed subscription |
+
+### Managing Subscribers
+
+View and manage subscribers:
+
+- Export subscriber list
+- Remove inactive subscribers
+- View subscription preferences
+
+## Metrics and Uptime
+
+### Uptime Tracking
+
+Display historical uptime:
+
+- 90-day uptime percentage
+- Incident history graph
+- Component-level metrics
+
+### Uptime Display
+
+```
+Last 90 Days
+├── API: 99.95% uptime
+├── Web App: 99.99% uptime
+└── Database: 99.98% uptime
+```
+
+### SLA Tracking
+
+Track against your SLAs:
+
+- Define SLA targets per component
+- Automatic SLA breach alerts
+- Monthly/quarterly reports
+
+## Customization
+
+### Branding
+
+Customize your status page:
+
+- Company logo
+- Brand colors
+- Custom CSS (advanced)
+- Custom domain
+
+### Custom Domain
+
+1. Go to **Settings** → **Domain**
+2. Enter domain (e.g., `status.yourcompany.com`)
+3. Add DNS records provided
+4. Verify and enable
+
+## API Access
+
+### Status Page API
+
+Programmatic access to status:
+
+```bash
+GET /api/v1/status
+GET /api/v1/components
+GET /api/v1/incidents
+```
+
+### Use Cases
+
+- Embed status in your app
+- Integrate with monitoring tools
+- Custom status displays
+- Automated alerting
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Communicate Early and Often" icon="bullhorn">
+    Post updates even if there's no new information. Customers appreciate knowing you're working on it.
+  </Accordion>
+  <Accordion title="Be Honest About Impact" icon="balance-scale">
+    Don't downplay issues. Customers will notice if the status doesn't match their experience.
+  </Accordion>
+  <Accordion title="Write for Customers" icon="users">
+    Avoid technical jargon. Explain what the impact is, not what's broken.
+  </Accordion>
+  <Accordion title="Post-Incident Review" icon="search">
+    After major incidents, consider publishing a post-mortem to build trust.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Trust Center" icon="building-shield" href="/customer-trust/trust-center">
+    Create your public trust portal
+  </Card>
+  <Card title="Compliance" icon="shield-check" href="/compliance/overview">
+    Document your incident response process
+  </Card>
+</CardGroup>

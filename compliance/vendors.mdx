@@ -1,0 +1,205 @@
+---
+title: Vendors
+description: 'Manage third-party vendor risk and compliance'
+---
+
+## Overview
+
+The Vendors section helps you track and assess the security posture of your third-party vendors. Vendor risk management is a key compliance requirement across most frameworks.
+
+## Why Vendor Management?
+
+Third-party vendors can introduce significant risk:
+
+- **Data Access** - Vendors may access sensitive data
+- **System Integration** - Connected systems create attack surface
+- **Compliance Impact** - Vendor failures affect your compliance
+- **Supply Chain Risk** - Compromised vendors can impact operations
+
+## Vendor Inventory
+
+### Adding Vendors
+
+1. Navigate to **Compliance** → **Vendors**
+2. Click **Add Vendor**
+3. Enter vendor details:
+   - **Name** - Vendor company name
+   - **Category** - Type of service
+   - **Contact** - Primary contact information
+   - **Website** - Vendor website
+   - **Description** - Service description
+4. Click **Save**
+
+### Vendor Categories
+
+| Category | Examples |
+|----------|----------|
+| **Cloud Infrastructure** | AWS, Azure, GCP |
+| **SaaS Applications** | Salesforce, Slack, Zoom |
+| **Security Tools** | Antivirus, SIEM, MDM |
+| **Payment Processing** | Stripe, PayPal |
+| **HR Systems** | Workday, BambooHR |
+| **Development Tools** | GitHub, Jira, CI/CD |
+
+## Risk Assessment
+
+### Assessing Vendor Risk
+
+Evaluate each vendor on:
+
+| Factor | Considerations |
+|--------|---------------|
+| **Data Access** | What data does the vendor access? |
+| **System Access** | What systems can they reach? |
+| **Criticality** | How critical is the service? |
+| **Security Posture** | What security certifications do they have? |
+| **Contractual Terms** | What protections are in the contract? |
+
+### Risk Levels
+
+| Level | Description | Review Frequency |
+|-------|-------------|------------------|
+| **Critical** | Access to sensitive data/systems | Quarterly |
+| **High** | Significant business impact | Semi-annually |
+| **Medium** | Limited access, moderate impact | Annually |
+| **Low** | Minimal access and impact | Every 2 years |
+
+## Due Diligence
+
+### Security Questionnaire
+
+Send security questionnaires to vendors:
+
+1. Select vendor
+2. Click **Send Questionnaire**
+3. Choose questionnaire template
+4. Vendor receives and completes questionnaire
+5. Review responses
+
+### Documentation Collection
+
+Collect security documentation:
+
+- **SOC 2 Report** - Service organization controls
+- **ISO 27001 Certificate** - Information security management
+- **Penetration Test Results** - Security testing
+- **Insurance Certificate** - Cyber insurance coverage
+- **Data Processing Agreement** - Privacy terms
+
+### Ongoing Monitoring
+
+Set up continuous monitoring:
+
+- **Expiration Alerts** - Notify when certifications expire
+- **Review Reminders** - Schedule periodic reviews
+- **Incident Tracking** - Record vendor security incidents
+
+## Suggested Vendors
+
+Bastion provides a curated list of suggested vendors:
+
+- **Pre-Vetted** - Security-focused evaluation
+- **Integration Ready** - Works with Bastion integrations
+- **Category Organized** - Easy to find alternatives
+
+### Viewing Suggestions
+
+1. Navigate to **Vendors**
+2. Click **Suggested Vendors**
+3. Filter by category
+4. View vendor details and security information
+
+## Compliance Mapping
+
+### Linking to Controls
+
+Map vendors to relevant compliance controls:
+
+- **Access Management** - Who has access to vendor systems?
+- **Data Protection** - How is data protected?
+- **Incident Response** - Vendor incident notification
+- **Business Continuity** - Vendor availability requirements
+
+### Evidence Generation
+
+Vendor documentation serves as compliance evidence:
+
+- SOC 2 reports for third-party controls
+- Contracts showing security requirements
+- Questionnaire responses documenting security practices
+
+## Vendor Lifecycle
+
+### Onboarding
+
+<Steps>
+  <Step title="Identify Need">
+    Document business need for new vendor
+  </Step>
+  <Step title="Security Review">
+    Conduct security assessment
+  </Step>
+  <Step title="Contract Review">
+    Ensure security terms in contract
+  </Step>
+  <Step title="Approval">
+    Obtain required approvals
+  </Step>
+  <Step title="Integration">
+    Set up access and integrations
+  </Step>
+</Steps>
+
+### Offboarding
+
+When ending vendor relationships:
+
+1. Revoke all access
+2. Confirm data deletion/return
+3. Update vendor inventory
+4. Archive documentation
+
+## Reporting
+
+### Vendor Reports
+
+Generate reports showing:
+
+- **Vendor Inventory** - Complete vendor listing
+- **Risk Distribution** - Vendors by risk level
+- **Certification Status** - Current vs. expired certifications
+- **Review Status** - Overdue reviews
+
+### Export Options
+
+- **PDF** - Formatted reports
+- **Excel** - Data for analysis
+- **Audit Package** - Evidence for auditors
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Maintain Complete Inventory" icon="list">
+    Document all vendors, not just critical ones. Shadow IT often involves undocumented vendors.
+  </Accordion>
+  <Accordion title="Review Regularly" icon="sync">
+    Don't let vendor reviews become stale. Set up reminders and stick to review schedules.
+  </Accordion>
+  <Accordion title="Require Security Terms" icon="file-contract">
+    Ensure contracts include security requirements, incident notification, and data protection clauses.
+  </Accordion>
+  <Accordion title="Plan for Exit" icon="door-open">
+    Know how to exit vendor relationships cleanly. Data portability and deletion are key concerns.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Risk Register" icon="exclamation-triangle" href="/compliance/risk-register">
+    Document organizational risks including vendor risks
+  </Card>
+  <Card title="Access Reviews" icon="user-check" href="/compliance/access-reviews">
+    Review access to vendor systems
+  </Card>
+</CardGroup>

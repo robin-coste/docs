@@ -1,0 +1,269 @@
+---
+title: ITSM
+description: 'Connect IT Service Management tools for automated ticket creation'
+---
+
+## Overview
+
+ITSM integrations connect Bastion to your ticketing systems. Automatically create tickets for security issues, track remediation, and maintain audit trails.
+
+## Supported Platforms
+
+<CardGroup cols={2}>
+  <Card title="Jira" icon="jira">
+    Atlassian Jira Software and Service Management
+  </Card>
+  <Card title="ServiceNow" icon="snowflake">
+    ServiceNow IT Service Management
+  </Card>
+</CardGroup>
+
+## Benefits
+
+| Feature | Benefit |
+|---------|---------|
+| **Auto-Creation** | Tickets created automatically |
+| **Bi-Directional Sync** | Status synced both ways |
+| **Remediation Tracking** | Track fix progress |
+| **Audit Trail** | Complete history |
+
+## Jira
+
+### Prerequisites
+
+- Jira Cloud or Server access
+- Project admin permissions
+- API token (Cloud) or credentials (Server)
+
+### Setup Steps
+
+<Steps>
+  <Step title="Generate API Token">
+    Create API token in Atlassian account settings.
+  </Step>
+  <Step title="Connect in Bastion">
+    Enter Jira URL, email, and API token.
+  </Step>
+  <Step title="Select Project">
+    Choose target project for tickets.
+  </Step>
+  <Step title="Map Fields">
+    Configure field mappings.
+  </Step>
+  <Step title="Test">
+    Create a test ticket.
+  </Step>
+</Steps>
+
+### Configuration
+
+| Setting | Description |
+|---------|-------------|
+| **Project** | Target Jira project |
+| **Issue Type** | Bug, Task, Security Issue |
+| **Priority Mapping** | Severity to priority |
+| **Assignee** | Default or dynamic |
+| **Labels** | Auto-applied labels |
+
+### Field Mapping
+
+Map Bastion fields to Jira:
+
+| Bastion Field | Jira Field |
+|---------------|------------|
+| Title | Summary |
+| Description | Description |
+| Severity | Priority |
+| Asset | Custom field |
+| CVE ID | Custom field |
+
+## ServiceNow
+
+### Prerequisites
+
+- ServiceNow instance access
+- Integration user account
+- REST API enabled
+
+### Setup Steps
+
+<Steps>
+  <Step title="Create Integration User">
+    Create a user with required roles.
+  </Step>
+  <Step title="Get Instance URL">
+    Note your ServiceNow instance URL.
+  </Step>
+  <Step title="Connect in Bastion">
+    Enter instance URL and credentials.
+  </Step>
+  <Step title="Configure Tables">
+    Select target tables for records.
+  </Step>
+  <Step title="Test">
+    Create a test record.
+  </Step>
+</Steps>
+
+### Required Roles
+
+| Role | Purpose |
+|------|---------|
+| `itil` | Standard ITSM access |
+| `rest_api_explorer` | API access |
+| `import_admin` | Import set access |
+
+### Configuration
+
+| Setting | Description |
+|---------|-------------|
+| **Table** | Incident, Problem, Security Incident |
+| **Assignment Group** | Default assignment |
+| **Category** | Categorization |
+| **Impact/Urgency** | Priority calculation |
+
+## Auto-Ticket Creation
+
+### Trigger Events
+
+Automatically create tickets for:
+
+| Event | Ticket Type |
+|-------|-------------|
+| **New Critical Issue** | Security incident |
+| **Vulnerability SLA Breach** | Task |
+| **Access Review Finding** | Change request |
+| **Compliance Gap** | Task |
+
+### Trigger Configuration
+
+1. Go to **Settings** → **ITSM Triggers**
+2. Click **Add Trigger**
+3. Select event type
+4. Configure conditions
+5. Map to ticket type
+6. Enable
+
+### Ticket Content
+
+Tickets include:
+
+- Issue title and description
+- Severity and priority
+- Affected asset
+- Remediation guidance
+- Link back to Bastion
+
+## Status Sync
+
+### Bi-Directional Sync
+
+| ITSM Action | Bastion Update |
+|-------------|----------------|
+| Ticket resolved | Issue marked fixed |
+| Ticket closed | Issue closed |
+| Ticket reopened | Issue reopened |
+
+| Bastion Action | ITSM Update |
+|----------------|-------------|
+| Issue fixed | Update ticket |
+| Issue closed | Close ticket |
+| Comment added | Add comment |
+
+### Status Mapping
+
+Map statuses between systems:
+
+| Bastion Status | Jira Status | ServiceNow State |
+|----------------|-------------|------------------|
+| Open | To Do | New |
+| In Progress | In Progress | Work in Progress |
+| Fixed | Done | Resolved |
+| Closed | Done | Closed |
+
+## Workflow Integration
+
+### Remediation Flow
+
+```
+Issue Found → Ticket Created → Assigned → Fixed → Verified → Closed
+```
+
+### SLA Tracking
+
+Track against SLAs:
+
+- Time to assignment
+- Time to resolution
+- Age warnings
+- Escalation triggers
+
+## Reporting
+
+### Ticket Metrics
+
+Track ITSM integration:
+
+- Tickets created
+- Average resolution time
+- Open tickets by severity
+- SLA compliance
+
+### Audit Trail
+
+Complete history:
+
+- Ticket creation events
+- Status changes
+- Comments and updates
+- Resolution details
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Tickets Not Creating" icon="ticket">
+    - Verify API credentials
+    - Check project/table permissions
+    - Review required fields
+    - Check field mappings
+  </Accordion>
+  <Accordion title="Sync Not Working" icon="sync">
+    - Verify webhook configuration
+    - Check status mappings
+    - Review sync logs
+    - Confirm network access
+  </Accordion>
+  <Accordion title="Field Errors" icon="exclamation">
+    - Verify field exists in ITSM
+    - Check field type compatibility
+    - Review required fields
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use Dedicated Project" icon="folder">
+    Create a dedicated project/queue for security tickets.
+  </Accordion>
+  <Accordion title="Map Priorities Carefully" icon="sort">
+    Ensure severity to priority mapping aligns with SLAs.
+  </Accordion>
+  <Accordion title="Include Context" icon="info-circle">
+    Configure tickets to include enough context for remediation.
+  </Accordion>
+  <Accordion title="Test Thoroughly" icon="flask">
+    Test ticket creation and sync before production use.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Cloud Services" icon="cloud" href="/integrations/cloud">
+    Connect cloud services
+  </Card>
+  <Card title="VCS" icon="code-branch" href="/integrations/vcs">
+    Connect version control
+  </Card>
+</CardGroup>

@@ -1,0 +1,254 @@
+---
+title: Data Leak Monitoring
+description: 'Monitor for employee credential breaches and data exposures'
+---
+
+## Overview
+
+Data Leak Monitoring scans for your employees' credentials in data breaches across the dark web and public breach databases. Identify compromised accounts before attackers exploit them.
+
+## Why Data Leak Monitoring?
+
+### The Risk
+
+- **Average person** has 100+ online accounts
+- **65%** of people reuse passwords
+- **Billions** of credentials exposed in breaches
+- **Compromised credentials** are sold and traded
+
+### Credential Reuse Impact
+
+When an employee's personal account is breached:
+
+1. Attackers try the same password elsewhere
+2. Corporate accounts often share passwords
+3. Credential stuffing attacks are automated
+4. Accounts compromised within hours
+
+## How It Works
+
+### Monitoring Process
+
+<Steps>
+  <Step title="Domain Configuration">
+    Bastion monitors your email domains.
+  </Step>
+  <Step title="Breach Scanning">
+    Continuous scanning of breach databases and dark web.
+  </Step>
+  <Step title="Match Detection">
+    Employee emails matched against breach data.
+  </Step>
+  <Step title="Alert Generation">
+    Alerts created for exposed credentials.
+  </Step>
+  <Step title="Remediation">
+    Password reset and employee notification.
+  </Step>
+</Steps>
+
+### Data Sources
+
+| Source | Description |
+|--------|-------------|
+| **Breach Databases** | Collections of known breaches |
+| **Dark Web** | Credential marketplaces |
+| **Paste Sites** | Data dump websites |
+| **Combo Lists** | Compiled credential lists |
+
+## Issue Dashboard
+
+### Viewing Issues
+
+Navigate to **Employees** → **Data Leak** → **Issues**
+
+Each issue shows:
+
+- Employee email
+- Breach source
+- Date discovered
+- Data exposed (password, hash, personal info)
+- Status (new, in progress, resolved)
+
+### Issue Severity
+
+| Severity | Meaning |
+|----------|---------|
+| **Critical** | Plaintext password exposed |
+| **High** | Weak hash exposed (likely cracked) |
+| **Medium** | Strong hash exposed |
+| **Low** | Email only, no password |
+
+### Issue Details
+
+Click an issue to see:
+
+- **Breach Information** - Name, date, scope
+- **Exposed Data** - What was leaked
+- **Employee History** - Past breaches for this employee
+- **Recommended Actions** - Remediation steps
+
+## Remediation Workflow
+
+### Handling Issues
+
+<Steps>
+  <Step title="Review">
+    Review issue details and severity.
+  </Step>
+  <Step title="Notify">
+    Notify the affected employee.
+  </Step>
+  <Step title="Password Reset">
+    Require password reset on corporate accounts.
+  </Step>
+  <Step title="Verify">
+    Confirm password was changed.
+  </Step>
+  <Step title="Close">
+    Mark issue as resolved.
+  </Step>
+</Steps>
+
+### Notification Options
+
+| Method | Configuration |
+|--------|---------------|
+| **Email** | Send breach notification email |
+| **In-App** | Notify within Bastion |
+| **Manual** | Handle notification yourself |
+
+### Email Template
+
+Customize the breach notification email:
+
+- Subject line
+- Breach details to include
+- Required actions
+- Links to password reset
+
+## Integration with Identity
+
+### Forced Password Reset
+
+With identity provider integration:
+
+1. Issue detected
+2. Automatic forced password reset triggered
+3. Employee must reset on next login
+4. Reset verified in Bastion
+
+### Supported Integrations
+
+- Azure Active Directory
+- Okta
+- Google Workspace
+
+## Historical Data
+
+### Breach History
+
+View historical breach data:
+
+- Total breaches affecting organization
+- Trend over time
+- Most affected employees
+- Common breach sources
+
+### Employee Breach History
+
+Per employee:
+
+- All past breaches
+- Credentials exposed
+- Remediation status
+- Risk level
+
+## Proactive Measures
+
+### Password Policies
+
+Reduce breach impact with:
+
+- Unique passwords per account
+- Password manager usage
+- MFA enforcement
+- Regular password rotation
+
+### Training Integration
+
+Link to awareness training:
+
+- Password security courses
+- Post-breach training assignment
+- Credential hygiene education
+
+## Reporting
+
+### Breach Reports
+
+Generate reports showing:
+
+- **Summary** - Total breaches, affected employees
+- **Trend** - Breaches over time
+- **By Department** - Department breakdown
+- **Remediation Status** - Open vs. resolved
+
+### Compliance Evidence
+
+Breach monitoring supports:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC6.8 |
+| **ISO 27001** | A.12.6.1 |
+| **PCI DSS** | 12.10 |
+
+## Alerts Configuration
+
+### Alert Settings
+
+Configure how you're notified:
+
+| Setting | Options |
+|---------|---------|
+| **Frequency** | Real-time, daily digest, weekly |
+| **Recipients** | Security team, employee managers |
+| **Severity Filter** | All, high and above, critical only |
+
+### Escalation
+
+Set up escalation for unresolved issues:
+
+1. Initial alert to security team
+2. 24 hours: reminder to security team
+3. 48 hours: escalate to manager
+4. 72 hours: escalate to CISO
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Act Quickly" icon="bolt">
+    Breached credentials are often exploited within hours. Fast remediation is critical.
+  </Accordion>
+  <Accordion title="Monitor Personal Domains" icon="at">
+    Consider monitoring common personal email domains if they're used for business tools.
+  </Accordion>
+  <Accordion title="Enforce MFA" icon="lock">
+    MFA reduces breach impact significantly. Even with stolen passwords, accounts remain protected.
+  </Accordion>
+  <Accordion title="Educate Employees" icon="graduation-cap">
+    Train employees on password hygiene and the risks of credential reuse.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="People" icon="users" href="/employees/people">
+    Manage employee directory
+  </Card>
+  <Card title="Training" icon="graduation-cap" href="/employees/awareness-training">
+    Assign password security training
+  </Card>
+</CardGroup>

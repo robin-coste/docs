@@ -1,0 +1,282 @@
+---
+title: Code Security
+description: 'SBOM management and dependency vulnerability scanning'
+---
+
+## Overview
+
+Code Security provides visibility into your software supply chain. Generate SBOMs (Software Bill of Materials), scan for dependency vulnerabilities, and monitor your code repositories.
+
+## Why Code Security?
+
+### Supply Chain Risks
+
+- **Dependency Vulnerabilities** - Known CVEs in libraries
+- **Malicious Packages** - Compromised dependencies
+- **License Issues** - Compliance with open source licenses
+- **Outdated Libraries** - Missing security patches
+
+### Benefits
+
+- Visibility into all dependencies
+- Early vulnerability detection
+- License compliance
+- Audit readiness
+
+## SBOM (Software Bill of Materials)
+
+### What is SBOM?
+
+An SBOM is an inventory of all software components:
+
+- Direct dependencies
+- Transitive dependencies
+- Versions
+- Licenses
+- Vulnerabilities
+
+### Generating SBOMs
+
+<Steps>
+  <Step title="Connect Repository">
+    Link your code repositories.
+  </Step>
+  <Step title="Scan">
+    Bastion analyzes package manifests.
+  </Step>
+  <Step title="Generate">
+    SBOM generated in standard format.
+  </Step>
+  <Step title="Monitor">
+    Continuous monitoring for changes.
+  </Step>
+</Steps>
+
+### SBOM Formats
+
+| Format | Description |
+|--------|-------------|
+| **SPDX** | Linux Foundation standard |
+| **CycloneDX** | OWASP standard |
+| **JSON** | Custom JSON format |
+
+## Repository Integration
+
+### Supported Platforms
+
+| Platform | Features |
+|----------|----------|
+| **GitHub** | Full integration |
+| **GitLab** | Full integration |
+| **Bitbucket** | Coming soon |
+
+### Connecting Repositories
+
+1. Navigate to **Infrastructure** → **Code Security**
+2. Click **Connect Repository**
+3. Select platform
+4. Authorize Bastion
+5. Select repositories to monitor
+
+### Repository Permissions
+
+Bastion requires:
+
+- Read access to code
+- Read access to package manifests
+- Webhook permissions (optional, for real-time)
+
+## Dependency Scanning
+
+### What We Scan
+
+| Ecosystem | Manifest Files |
+|-----------|----------------|
+| **JavaScript/Node** | package.json, package-lock.json, yarn.lock |
+| **Python** | requirements.txt, Pipfile, pyproject.toml |
+| **Java** | pom.xml, build.gradle |
+| **Go** | go.mod, go.sum |
+| **Ruby** | Gemfile, Gemfile.lock |
+| **PHP** | composer.json, composer.lock |
+| **Rust** | Cargo.toml, Cargo.lock |
+| **C#/.NET** | *.csproj, packages.config |
+
+### Scan Process
+
+1. Parse manifest files
+2. Resolve all dependencies (including transitive)
+3. Check against vulnerability databases
+4. Calculate risk scores
+5. Generate reports
+
+### Vulnerability Sources
+
+| Source | Coverage |
+|--------|----------|
+| **NVD** | National Vulnerability Database |
+| **GitHub Advisory** | GitHub Security Advisories |
+| **OSV** | Open Source Vulnerability Database |
+| **Vendor Advisories** | Direct from maintainers |
+
+## Viewing Results
+
+### Repository Dashboard
+
+For each repository:
+
+- Total dependencies
+- Vulnerable dependencies
+- Severity breakdown
+- Last scan date
+
+### Dependency List
+
+View all dependencies:
+
+| Column | Description |
+|--------|-------------|
+| **Name** | Package name |
+| **Version** | Installed version |
+| **Latest** | Latest available |
+| **License** | Package license |
+| **Vulnerabilities** | CVE count |
+| **Direct/Transitive** | Dependency type |
+
+### Vulnerability Details
+
+Click on a vulnerability:
+
+- CVE ID and description
+- Severity (CVSS score)
+- Affected versions
+- Fixed version
+- Remediation guidance
+
+## Remediation
+
+### Upgrade Dependencies
+
+To fix vulnerabilities:
+
+1. Review vulnerability details
+2. Check fixed version compatibility
+3. Update package manifest
+4. Test changes
+5. Deploy update
+6. Verify fix
+
+### Remediation Workflow
+
+| Action | When to Use |
+|--------|-------------|
+| **Upgrade** | Fixed version available |
+| **Replace** | Alternative package exists |
+| **Patch** | Apply security patch |
+| **Accept** | Risk accepted (documented) |
+
+### Pull Request Integration
+
+Bastion can create PRs:
+
+1. Enable auto-PR in settings
+2. Configure target branches
+3. Bastion creates PRs for fixes
+4. Review and merge
+
+## License Compliance
+
+### License Detection
+
+Detect licenses in dependencies:
+
+- MIT, Apache, GPL, BSD, etc.
+- License compatibility checking
+- Policy enforcement
+
+### License Policies
+
+Define acceptable licenses:
+
+1. Go to **Settings** → **License Policy**
+2. Add allowed licenses
+3. Add restricted licenses
+4. Enable enforcement
+
+### License Violations
+
+When restricted license detected:
+
+- Alert generated
+- Issue created
+- Blocking (optional)
+
+## Monitoring
+
+### Continuous Scanning
+
+Scans run:
+
+- On each commit (if webhooks enabled)
+- Daily scheduled scan
+- Manual trigger
+
+### Alerts
+
+Configure alerts for:
+
+| Alert Type | Trigger |
+|------------|---------|
+| **New Critical** | Critical CVE discovered |
+| **New High** | High-severity CVE |
+| **New Dependency** | Dependency added |
+| **License Violation** | Restricted license |
+
+## Reporting
+
+### Security Reports
+
+Generate reports:
+
+- Vulnerability summary
+- Dependency inventory
+- License compliance
+- Trend analysis
+
+### Compliance Evidence
+
+SBOM documentation supports:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC7.1 |
+| **ISO 27001** | A.14.1.2 |
+| **PCI DSS** | 6.3 |
+| **HIPAA** | §164.312(e) |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Keep Dependencies Updated" icon="sync">
+    Regular updates prevent vulnerability accumulation. Automate where possible.
+  </Accordion>
+  <Accordion title="Minimize Dependencies" icon="compress">
+    Fewer dependencies = smaller attack surface. Regularly audit necessity.
+  </Accordion>
+  <Accordion title="Lock Versions" icon="lock">
+    Use lock files to ensure reproducible builds and prevent supply chain attacks.
+  </Accordion>
+  <Accordion title="Monitor All Repositories" icon="eye">
+    Include all repositories, even internal tools and scripts.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Penetration Testing" icon="user-secret" href="/infrastructure/penetration-testing">
+    Validate security with pentests
+  </Card>
+  <Card title="Typosquatting" icon="spell-check" href="/infrastructure/typosquatting">
+    Detect domain impersonation
+  </Card>
+</CardGroup>

@@ -1,0 +1,297 @@
+---
+title: MDM Query
+description: 'Run OSQuery commands for detailed device interrogation'
+---
+
+## Overview
+
+MDM Query provides a powerful interface for running OSQuery commands across your device fleet. Get detailed system information, troubleshoot issues, and gather compliance evidence.
+
+## What is OSQuery?
+
+OSQuery exposes the operating system as a relational database:
+
+- Query system state with SQL-like syntax
+- Cross-platform support (Windows, macOS, Linux)
+- Real-time and historical data
+- Low performance impact
+
+## Query Interface
+
+### Running Queries
+
+1. Navigate to **Devices** → **MDM Query**
+2. Select target devices:
+   - Single device
+   - Device group
+   - All devices
+3. Enter or select query
+4. Click **Run Query**
+5. View results
+
+### Query Syntax
+
+Queries use SQL-like syntax:
+
+```sql
+SELECT * FROM users WHERE uid > 500;
+```
+
+```sql
+SELECT name, version FROM programs
+WHERE name LIKE '%chrome%';
+```
+
+```sql
+SELECT pid, name, cmdline FROM processes
+WHERE on_disk = 0;
+```
+
+## Common Queries
+
+### System Information
+
+**OS Version:**
+```sql
+SELECT * FROM os_version;
+```
+
+**Hardware Info:**
+```sql
+SELECT * FROM system_info;
+```
+
+**Uptime:**
+```sql
+SELECT * FROM uptime;
+```
+
+### Security
+
+**Running Processes:**
+```sql
+SELECT pid, name, path, cmdline
+FROM processes;
+```
+
+**Listening Ports:**
+```sql
+SELECT pid, port, protocol, address
+FROM listening_ports;
+```
+
+**Installed Certificates:**
+```sql
+SELECT * FROM certificates;
+```
+
+**Firewall Status:**
+```sql
+SELECT * FROM alf; -- macOS
+SELECT * FROM windows_firewall_rules; -- Windows
+```
+
+### Software
+
+**Installed Programs:**
+```sql
+SELECT name, version, install_date
+FROM programs; -- Windows
+
+SELECT name, bundle_version
+FROM apps; -- macOS
+```
+
+**Browser Extensions:**
+```sql
+SELECT * FROM chrome_extensions;
+SELECT * FROM firefox_addons;
+```
+
+### Users
+
+**Local Users:**
+```sql
+SELECT * FROM users;
+```
+
+**Logged In Users:**
+```sql
+SELECT * FROM logged_in_users;
+```
+
+**Last Login:**
+```sql
+SELECT * FROM last;
+```
+
+## Query Library
+
+### Saved Queries
+
+Save frequently used queries:
+
+1. Write or run query
+2. Click **Save Query**
+3. Enter name and description
+4. Assign to category
+5. Save
+
+### Pre-built Queries
+
+Bastion includes pre-built queries for:
+
+| Category | Examples |
+|----------|----------|
+| **Security** | Open ports, suspicious processes |
+| **Compliance** | Encryption status, AV installed |
+| **Inventory** | Hardware, software, users |
+| **Troubleshooting** | Disk space, memory, network |
+
+## Query Scheduling
+
+### Scheduled Queries
+
+Run queries automatically:
+
+1. Create or select query
+2. Click **Schedule**
+3. Configure:
+   - Frequency (hourly, daily, weekly)
+   - Target devices
+   - Data retention
+4. Enable schedule
+
+### Use Cases
+
+- Daily inventory collection
+- Hourly security checks
+- Weekly compliance verification
+- Change detection
+
+## Live Queries
+
+### Real-Time Execution
+
+For immediate results:
+
+1. Select devices
+2. Run query
+3. Results stream in real-time
+4. View per-device results
+
+### Timeout Handling
+
+| Scenario | Behavior |
+|----------|----------|
+| Device online | Returns results |
+| Device offline | Marked as unavailable |
+| Query timeout | Partial results + timeout indicator |
+
+## Query Results
+
+### Viewing Results
+
+Results displayed in table format:
+
+- Sort by any column
+- Filter results
+- Export to CSV/Excel
+- Compare across devices
+
+### Result Actions
+
+| Action | Description |
+|--------|-------------|
+| **Export** | Download as CSV |
+| **Save** | Store results historically |
+| **Compare** | Compare to previous results |
+| **Alert** | Create alert based on results |
+
+## Device-Specific Queries
+
+### Single Device
+
+Query one device for troubleshooting:
+
+1. Go to **Devices** → **Device List**
+2. Select device
+3. Click **Query**
+4. Run query against that device
+
+### Query History
+
+View past queries for a device:
+
+- Previous queries run
+- Results returned
+- Timestamp
+- Query source (manual, scheduled)
+
+## Security Considerations
+
+### Query Permissions
+
+| Permission | Access |
+|------------|--------|
+| **Read** | View results only |
+| **Execute** | Run pre-built queries |
+| **Custom** | Write custom queries |
+| **Admin** | All query capabilities |
+
+### Query Auditing
+
+All queries are logged:
+
+- User who ran query
+- Query content
+- Target devices
+- Timestamp
+- Results (optional)
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with Pre-built" icon="list">
+    Use pre-built queries as starting points. They're tested and optimized.
+  </Accordion>
+  <Accordion title="Test on Single Device" icon="laptop">
+    Test new queries on one device before running fleet-wide.
+  </Accordion>
+  <Accordion title="Mind Performance" icon="gauge-high">
+    Complex queries on many devices can impact performance. Use appropriate filters.
+  </Accordion>
+  <Accordion title="Schedule Wisely" icon="calendar">
+    Don't over-schedule. Running queries too frequently wastes resources.
+  </Accordion>
+</AccordionGroup>
+
+## OSQuery Reference
+
+### Useful Tables
+
+| Table | Description | Platform |
+|-------|-------------|----------|
+| `processes` | Running processes | All |
+| `users` | User accounts | All |
+| `listening_ports` | Open network ports | All |
+| `programs` | Installed software | Windows |
+| `apps` | Installed applications | macOS |
+| `deb_packages` | Installed packages | Debian/Ubuntu |
+
+### Documentation
+
+For complete OSQuery documentation:
+- [OSQuery Tables](https://osquery.io/schema)
+- [OSQuery SQL Guide](https://osquery.readthedocs.io)
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Web Browsing" icon="globe" href="/web-browsing/overview">
+    Configure browser security
+  </Card>
+  <Card title="Policies" icon="shield" href="/devices/policies">
+    Create device policies
+  </Card>
+</CardGroup>

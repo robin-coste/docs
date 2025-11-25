@@ -1,0 +1,267 @@
+---
+title: Cloud Services
+description: 'Connect cloud services for email security and app monitoring'
+---
+
+## Overview
+
+Cloud service integrations connect Bastion to Microsoft 365 and Google Workspace. Enable phishing simulations, email security, and SaaS app discovery.
+
+## Supported Services
+
+<CardGroup cols={2}>
+  <Card title="Microsoft 365" icon="microsoft">
+    Exchange, Teams, SharePoint, OneDrive
+  </Card>
+  <Card title="Google Workspace" icon="google">
+    Gmail, Calendar, Drive, Admin
+  </Card>
+</CardGroup>
+
+## Benefits
+
+| Feature | Benefit |
+|---------|---------|
+| **Phishing Delivery** | Send simulations via real email |
+| **App Discovery** | Find connected SaaS apps |
+| **OAuth Audit** | Review granted permissions |
+| **Activity Logs** | Security event monitoring |
+
+## Microsoft 365
+
+### Prerequisites
+
+- Microsoft 365 admin access
+- Azure AD Global Admin (for app consent)
+- Exchange Online license
+
+### Setup Steps
+
+<Steps>
+  <Step title="Admin Consent">
+    Grant admin consent for Bastion application.
+  </Step>
+  <Step title="Configure Permissions">
+    Review and approve required permissions.
+  </Step>
+  <Step title="Enable Features">
+    Select which features to enable.
+  </Step>
+  <Step title="Test">
+    Verify connection and features.
+  </Step>
+</Steps>
+
+### Required Permissions
+
+| Permission | Purpose |
+|------------|---------|
+| `Mail.Send` | Send phishing simulations |
+| `Mail.Read` | Read delivery status |
+| `User.Read.All` | User directory access |
+| `Directory.Read.All` | App discovery |
+| `SecurityEvents.Read.All` | Security monitoring |
+
+### Available Features
+
+| Feature | Description |
+|---------|-------------|
+| **Phishing Campaigns** | Deliver via Exchange |
+| **App Discovery** | Find OAuth apps |
+| **Mailbox Rules** | Detect risky rules |
+| **Audit Logs** | Security event access |
+
+## Google Workspace
+
+### Prerequisites
+
+- Google Workspace super admin
+- Domain-wide delegation enabled
+- Cloud Identity Premium (some features)
+
+### Setup Steps
+
+<Steps>
+  <Step title="Create Service Account">
+    Create in Google Cloud Console.
+  </Step>
+  <Step title="Enable APIs">
+    Enable required APIs.
+  </Step>
+  <Step title="Configure Delegation">
+    Set up domain-wide delegation.
+  </Step>
+  <Step title="Connect in Bastion">
+    Upload credentials and configure.
+  </Step>
+</Steps>
+
+### Required Scopes
+
+| Scope | Purpose |
+|-------|---------|
+| `gmail.send` | Send simulations |
+| `gmail.readonly` | Read status |
+| `admin.directory.*` | Directory access |
+| `admin.reports.*` | Activity logs |
+
+### Available Features
+
+| Feature | Description |
+|---------|-------------|
+| **Phishing Campaigns** | Deliver via Gmail |
+| **App Discovery** | Find connected apps |
+| **OAuth Review** | Audit granted permissions |
+| **Activity Logs** | Security events |
+
+## Phishing Delivery
+
+### Email Delivery
+
+With cloud integration, phishing simulations:
+
+- Send from your actual domain
+- Appear more realistic
+- Track opens and clicks
+- Handle replies
+
+### Delivery Configuration
+
+| Setting | Description |
+|---------|-------------|
+| **Sender** | Which mailbox sends |
+| **Bypass Filters** | Skip spam filtering |
+| **Track Opens** | Enable open tracking |
+| **Reply Handling** | What happens to replies |
+
+### Allowlisting
+
+Configure email filters to allow simulations:
+
+**Microsoft 365:**
+1. Add Bastion IPs to connection filter
+2. Create transport rule for bypass
+3. Configure advanced delivery
+
+**Google Workspace:**
+1. Add to email allowlist
+2. Configure content compliance
+3. Set up routing rules
+
+## App Discovery
+
+### OAuth App Discovery
+
+Find apps connected to your environment:
+
+- Apps authorized by users
+- Permissions granted
+- Last access time
+- Risk assessment
+
+### Discovery Process
+
+<Steps>
+  <Step title="Scan">
+    Bastion queries for OAuth grants.
+  </Step>
+  <Step title="Analyze">
+    Apps categorized and assessed.
+  </Step>
+  <Step title="Report">
+    Results appear in SaaS module.
+  </Step>
+  <Step title="Action">
+    Review, approve, or revoke.
+  </Step>
+</Steps>
+
+### Revoking Access
+
+Revoke OAuth access to risky apps:
+
+1. Select app in SaaS module
+2. Click **Revoke Access**
+3. Confirm revocation
+4. App access removed
+
+## Activity Monitoring
+
+### Monitored Events
+
+| Event Type | Description |
+|------------|-------------|
+| **Login Events** | Sign-in activity |
+| **Admin Actions** | Configuration changes |
+| **Data Access** | File and email access |
+| **Security Alerts** | Threat detections |
+
+### Alert Integration
+
+Forward cloud security alerts:
+
+- Suspicious sign-ins
+- Impossible travel
+- New OAuth grants
+- Data exfiltration
+
+## Compliance Evidence
+
+Cloud integrations provide evidence for:
+
+| Control | Evidence |
+|---------|----------|
+| **Access Control** | Login logs |
+| **Data Protection** | DLP events |
+| **Audit Logging** | Activity logs |
+| **App Management** | OAuth inventory |
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Phishing Not Delivering" icon="envelope">
+    - Check sender permissions
+    - Verify allowlisting
+    - Review bounce messages
+    - Check recipient validity
+  </Accordion>
+  <Accordion title="Apps Not Discovered" icon="magnifying-glass">
+    - Verify admin consent
+    - Check API permissions
+    - Review scan logs
+    - Confirm directory access
+  </Accordion>
+  <Accordion title="Logs Not Syncing" icon="clock">
+    - Check audit log permissions
+    - Verify log retention settings
+    - Review sync schedule
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use Least Privilege" icon="shield">
+    Only grant permissions needed for features you'll use.
+  </Accordion>
+  <Accordion title="Configure Allowlisting First" icon="list-check">
+    Set up email allowlisting before running phishing campaigns.
+  </Accordion>
+  <Accordion title="Monitor OAuth Regularly" icon="eye">
+    Review discovered apps frequently to catch shadow IT.
+  </Accordion>
+  <Accordion title="Archive Logs" icon="archive">
+    Ensure logs are retained for compliance requirements.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="VCS" icon="code-branch" href="/integrations/vcs">
+    Connect version control
+  </Card>
+  <Card title="Phishing" icon="fish" href="/employees/phishing-campaigns">
+    Run phishing campaigns
+  </Card>
+</CardGroup>

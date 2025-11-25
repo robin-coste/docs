@@ -1,0 +1,161 @@
+---
+title: Navigation
+description: 'Learn how to navigate the Bastion interface efficiently'
+---
+
+## Interface Overview
+
+The Bastion interface is designed for efficient navigation with a consistent layout across all modules.
+
+## Layout Structure
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                        Header                            │
+├──────────┬──────────────────────────────────────────────┤
+│          │                                               │
+│          │                                               │
+│  Sidenav │              Main Content                     │
+│          │                                               │
+│          │                                               │
+│          │                                               │
+└──────────┴──────────────────────────────────────────────┘
+```
+
+### Header
+
+The header contains:
+- **Command Menu** - Quick search and navigation (`K`)
+- **Notifications** - Alerts and updates
+- **User Menu** - Profile and settings
+
+### Sidenav
+
+The sidebar provides navigation to all modules:
+
+| Section | Icon | Modules |
+|---------|------|---------|
+| **Home** | House | Dashboard overview |
+| **Integrations** | Plug | Connected services |
+| **Compliance** | Shield | Frameworks, Audits, Policies, Vendors, Risk, Reviews |
+| **Customer Trust** | Handshake | Trust Center, Questionnaires, Status |
+| **Employees** | Users | People, Training, Phishing, Data Leak |
+| **SaaS** | Cloud | Third-Party Applications |
+| **Devices** | Laptop | Device List, Policies, Vulnerabilities, MDM Query |
+| **Web Browsing** | Globe | DNS Filtering, Configuration |
+| **Infrastructure** | Server | Assets, Issues, Code Security, Pentests, Typosquatting |
+
+## Keyboard Shortcuts
+
+Master these shortcuts to navigate quickly:
+
+### Navigation Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `H` | Go to Home |
+| `I` | Go to Integrations |
+| `C` | Go to Compliance |
+| `T` | Go to Customer Trust |
+| `E` | Go to Employees |
+| `A` | Go to SaaS |
+| `D` | Go to Devices |
+| `S` | Go to Infrastructure |
+
+### Action Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `K` | Open Command Menu (search everything) |
+| `Escape` | Close modal/dialog |
+
+<Tip>
+  The Command Menu (`K`) is the fastest way to navigate. Start typing to search for pages, actions, or settings.
+</Tip>
+
+## Command Menu
+
+The Command Menu provides universal search across:
+
+- **Pages** - Navigate to any page
+- **Actions** - Quick actions (create, export, etc.)
+- **Settings** - Configuration options
+- **Help** - Documentation and support
+
+### Using Command Menu
+
+1. Press `K` to open
+2. Start typing your query
+3. Use arrow keys to select
+4. Press `Enter` to navigate
+
+## Tables and Data Views
+
+Most modules use consistent table patterns:
+
+### Table Features
+
+- **Search** - Filter by text across columns
+- **Filters** - Dropdown filters for specific fields
+- **Sorting** - Click column headers to sort
+- **Pagination** - Navigate through large datasets
+- **Bulk Actions** - Select multiple rows for batch operations
+
+### URL State
+
+Table state is preserved in the URL:
+- Filters, search terms, and pagination are bookmarkable
+- Share filtered views with team members
+- Browser back/forward works with table state
+
+## Modals and Dialogs
+
+Actions often open in modals:
+
+- **Create** modals for new items
+- **Edit** modals for modifications
+- **Detail** modals for viewing information
+- **Confirmation** dialogs for destructive actions
+
+### Modal Navigation
+
+- Press `Escape` to close
+- Click outside to close (most modals)
+- Use `Tab` to navigate form fields
+
+## Breadcrumbs
+
+Breadcrumbs appear at the top of pages showing your location:
+
+```
+Home > Compliance > Frameworks > SOC 2 Type II
+```
+
+Click any breadcrumb to navigate back.
+
+## Responsive Design
+
+Bastion adapts to different screen sizes:
+
+- **Desktop** - Full sidebar with labels
+- **Tablet** - Collapsed sidebar with icons
+- **Mobile** - Bottom navigation (limited features)
+
+<Warning>
+  Some advanced features are only available on desktop. For the best experience, use Bastion on a desktop browser.
+</Warning>
+
+## Dark Mode
+
+Toggle dark mode from the user menu or system preferences. Both themes are fully supported throughout the application.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Compliance Module" icon="shield-check" href="/compliance/overview">
+    Start managing compliance
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/overview">
+    Connect your tools
+  </Card>
+</CardGroup>

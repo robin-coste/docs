@@ -1,0 +1,264 @@
+---
+title: Browser Extension
+description: 'Deploy browser extensions for enhanced web security'
+---
+
+## Overview
+
+The Bastion Browser Extension provides real-time protection within the browser. Detect phishing, prevent credential theft, and enforce safe browsing policies.
+
+## Features
+
+### Real-Time Protection
+
+| Feature | Protection |
+|---------|------------|
+| **Phishing Detection** | Blocks fake login pages |
+| **Malware Sites** | Prevents malicious downloads |
+| **Typosquatting** | Warns about suspicious domains |
+| **SSL Verification** | Checks certificate validity |
+
+### Password Protection
+
+- Detects password reuse
+- Warns on corporate password entry to external sites
+- Prevents credential phishing
+
+### Policy Enforcement
+
+- Block/warn on policy violations
+- Enforce safe search
+- Control file downloads
+
+## Installation
+
+### Supported Browsers
+
+| Browser | Version | Platforms |
+|---------|---------|-----------|
+| **Chrome** | 90+ | Windows, macOS, Linux |
+| **Edge** | 90+ | Windows, macOS |
+| **Firefox** | 90+ | Windows, macOS, Linux |
+| **Safari** | 14+ | macOS |
+
+### User Installation
+
+1. Send installation link to employees
+2. User clicks link to browser store
+3. User installs extension
+4. Extension configures automatically
+
+### Managed Deployment
+
+Deploy via enterprise management:
+
+**Chrome (GPO/MDM):**
+```json
+{
+  "ExtensionInstallForcelist": [
+    "extension-id;https://clients2.google.com/service/update2/crx"
+  ]
+}
+```
+
+**Firefox (GPO):**
+```json
+{
+  "Extensions": {
+    "Install": ["extension-url"]
+  }
+}
+```
+
+### Enrollment
+
+After installation:
+
+1. Extension prompts for enrollment
+2. User signs in with SSO
+3. Extension links to Bastion account
+4. Policies applied automatically
+
+## Configuration
+
+### Extension Settings
+
+Configure via Bastion dashboard:
+
+1. Navigate to **Web Browsing** → **Browser Extension**
+2. Click **Settings**
+3. Configure:
+   - Protection levels
+   - User notifications
+   - Reporting options
+4. Save
+
+### Protection Levels
+
+| Level | Behavior |
+|-------|----------|
+| **Block** | Prevent access, show block page |
+| **Warn** | Show warning, allow proceed |
+| **Monitor** | Log activity, no user impact |
+| **Off** | Disable protection |
+
+### Policy Settings
+
+| Setting | Options |
+|---------|---------|
+| **Phishing Protection** | Block, Warn, Monitor |
+| **Malware Protection** | Block, Warn, Monitor |
+| **Password Protection** | Enable, Disable |
+| **Safe Search** | Enforce, Off |
+| **Download Scanning** | Enable, Disable |
+
+## Password Protection
+
+### How It Works
+
+1. User enters password on a site
+2. Extension checks if password matches corporate password
+3. If match on non-approved site, action taken:
+   - Alert user
+   - Block submission
+   - Notify security team
+
+### Configuration
+
+1. Go to **Settings** → **Password Protection**
+2. Configure:
+   - Approved login domains
+   - Action on violation (block/warn)
+   - Admin notifications
+3. Save
+
+### Approved Domains
+
+Define where corporate passwords can be used:
+
+- `login.company.com`
+- `company.okta.com`
+- `*.yourcompany.com`
+
+## User Experience
+
+### Notifications
+
+Users see notifications for:
+
+- Blocked pages (with reason)
+- Warnings (with proceed option)
+- Security tips
+- Policy updates
+
+### Customization
+
+Customize user messaging:
+
+- Block page content
+- Warning messages
+- IT contact information
+- Request exception process
+
+## Reporting
+
+### Extension Analytics
+
+View extension usage:
+
+- Installed users
+- Active users
+- Threats blocked
+- Warnings shown
+
+### Threat Reports
+
+See detected threats:
+
+- Phishing attempts
+- Malware sites
+- Password warnings
+- Policy violations
+
+### User Activity
+
+View per-user data (if enabled):
+
+- Sites visited
+- Threats encountered
+- Actions taken
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Extension Not Connecting" icon="plug">
+    - Check network connectivity
+    - Verify SSO is working
+    - Clear browser cache
+    - Reinstall extension
+  </Accordion>
+  <Accordion title="False Positives" icon="exclamation">
+    - Add site to allowlist
+    - Report false positive
+    - Adjust sensitivity settings
+  </Accordion>
+  <Accordion title="Performance Issues" icon="gauge">
+    - Check for conflicting extensions
+    - Update browser
+    - Reduce monitoring scope
+  </Accordion>
+</AccordionGroup>
+
+## Privacy
+
+### Data Collection
+
+Extension collects:
+
+- URLs visited (for threat checking)
+- Blocked/warned sites
+- Extension status
+
+Extension does **not** collect:
+
+- Page content
+- Form data (except for password warnings)
+- Personal files
+
+### User Controls
+
+Users can:
+
+- View extension activity
+- Report false positives
+- Request exceptions
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Deploy with Training" icon="graduation-cap">
+    Accompany extension deployment with user training on why it's needed.
+  </Accordion>
+  <Accordion title="Start with Warnings" icon="exclamation-triangle">
+    Begin with warn mode. Move to block after users understand the system.
+  </Accordion>
+  <Accordion title="Monitor False Positives" icon="eye">
+    Watch for false positives and adjust allowlists accordingly.
+  </Accordion>
+  <Accordion title="Keep Updated" icon="sync">
+    Enable auto-updates for latest protection.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="DNS Filtering" icon="shield" href="/web-browsing/dns-filtering">
+    Configure DNS protection
+  </Card>
+  <Card title="Phishing Campaigns" icon="fish" href="/employees/phishing-campaigns">
+    Test employee awareness
+  </Card>
+</CardGroup>

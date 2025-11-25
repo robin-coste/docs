@@ -1,0 +1,135 @@
+---
+title: Quickstart
+description: 'Get up and running with Bastion in minutes'
+---
+
+## Welcome to Bastion
+
+This guide will walk you through the essential steps to set up your Bastion workspace and start securing your organization.
+
+## Step 1: Access Your Workspace
+
+<Steps>
+  <Step title="Sign In">
+    Navigate to [app.yourbastion.com](https://app.yourbastion.com) and sign in with your credentials. If you don't have an account, contact your administrator or [request a demo](https://yourbastion.com/demo).
+  </Step>
+  <Step title="Explore the Dashboard">
+    The home dashboard provides an overview of your compliance status and active security monitoring. Use the sidebar to navigate between modules.
+  </Step>
+</Steps>
+
+## Step 2: Set Up Integrations
+
+Integrations are the foundation of Bastion's automation. Connect your existing tools to enable automatic data collection and policy enforcement.
+
+<AccordionGroup>
+  <Accordion title="Identity Provider" icon="id-card">
+    Connect your identity provider to automatically import and sync employees:
+    - **Azure Active Directory** - Microsoft 365 environments
+    - **Okta** - Enterprise identity management
+    - **Google Workspace** - Google-based organizations
+
+    Navigate to **Integrations** → Select your provider → Follow the OAuth flow.
+  </Accordion>
+  <Accordion title="Cloud Services" icon="cloud">
+    Connect cloud services for compliance monitoring:
+    - **Microsoft 365** - Email, calendar, and file access auditing
+    - **Google Workspace** - Google apps monitoring
+
+    These integrations enable phishing simulations and data leak detection.
+  </Accordion>
+  <Accordion title="Version Control" icon="code-branch">
+    Connect your code repositories for code security:
+    - **GitHub** - Repository and dependency scanning
+    - **GitLab** - Self-hosted and cloud GitLab instances
+
+    Navigate to **Infrastructure** → **Code Security** → Connect VCS.
+  </Accordion>
+</AccordionGroup>
+
+## Step 3: Import Employees
+
+With your identity provider connected, import your employees:
+
+1. Navigate to **Employees** → **People**
+2. Click **Import Users**
+3. Select your identity integration
+4. Review and confirm the import
+
+<Tip>
+  Create **Compliance Groups** to organize employees by department, location, or role. Groups make it easy to assign training and manage access reviews.
+</Tip>
+
+## Step 4: Choose Your Modules
+
+Bastion is modular - enable only what you need:
+
+| Module | Use Case |
+|--------|----------|
+| **Compliance** | Pursuing certifications (SOC 2, ISO 27001, etc.) |
+| **Customer Trust** | Responding to customer security questionnaires |
+| **Awareness Training** | Security education for employees |
+| **Phishing Campaigns** | Test employee phishing awareness |
+| **Devices** | MDM and endpoint management |
+| **Web Browsing** | DNS filtering and browser security |
+| **Infrastructure** | Attack surface monitoring |
+| **Code Security** | SBOM and dependency scanning |
+
+## Step 5: Configure Your First Module
+
+<Tabs>
+  <Tab title="Compliance">
+    1. Go to **Compliance** → **Frameworks**
+    2. Select a framework (e.g., SOC 2 Type II)
+    3. Review the controls and requirements
+    4. Connect integrations to auto-collect evidence
+    5. Start working through the control tests
+  </Tab>
+  <Tab title="Phishing">
+    1. Go to **Employees** → **Phishing Campaigns**
+    2. Click **Create Campaign**
+    3. Select a phishing template
+    4. Choose your target audience
+    5. Schedule and launch the campaign
+  </Tab>
+  <Tab title="Devices">
+    1. Go to **Devices** → **Device List**
+    2. Download the Bastion agent
+    3. Install on your endpoints
+    4. Create device policies
+    5. Monitor compliance status
+  </Tab>
+</Tabs>
+
+## Keyboard Shortcuts
+
+Speed up your workflow with keyboard shortcuts:
+
+| Shortcut | Action |
+|----------|--------|
+| `H` | Go to Home |
+| `I` | Go to Integrations |
+| `C` | Go to Compliance |
+| `T` | Go to Customer Trust |
+| `E` | Go to Employees |
+| `A` | Go to SaaS |
+| `D` | Go to Devices |
+| `S` | Go to Infrastructure |
+| `K` | Open Command Menu (search) |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Core Concepts" icon="book" href="/concepts">
+    Learn about Bastion architecture and permissions
+  </Card>
+  <Card title="Compliance Setup" icon="shield-check" href="/compliance/overview">
+    Set up your first compliance framework
+  </Card>
+  <Card title="Employee Management" icon="users" href="/employees/overview">
+    Configure employee security programs
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/overview">
+    Connect all your tools
+  </Card>
+</CardGroup>

@@ -1,0 +1,121 @@
+---
+title: Web Browsing Overview
+description: 'DNS filtering and browser security for your organization'
+---
+
+## Introduction
+
+The Web Browsing module provides DNS-level security and browser extension-based protection. Block malicious websites, enforce acceptable use policies, and protect employees from web-based threats.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="DNS Filtering" icon="shield">
+    Block malicious and unwanted content at the DNS level
+  </Card>
+  <Card title="Browser Extension" icon="puzzle-piece">
+    Deploy browser extensions for enhanced protection
+  </Card>
+  <Card title="Custom Policies" icon="list-check">
+    Create custom allow/block rules
+  </Card>
+  <Card title="Reporting" icon="chart-bar">
+    Analytics on browsing activity and blocked threats
+  </Card>
+</CardGroup>
+
+## Why Web Browsing Security?
+
+### The Web Threat Landscape
+
+- **Phishing Sites** - Fake pages stealing credentials
+- **Malware Downloads** - Drive-by downloads
+- **Typosquatting** - Impersonation domains
+- **Data Exfiltration** - Unauthorized data transfers
+
+### DNS-Level Protection
+
+DNS filtering provides:
+
+- **Early Interception** - Block before connection
+- **All Devices** - Protects any DNS-using device
+- **No Performance Impact** - Minimal latency
+- **Encrypted DNS** - Supports DoH/DoT
+
+## Module Components
+
+### DNS Filtering
+
+Block threats and unwanted content:
+
+- Malware domains
+- Phishing sites
+- Content categories
+- Custom blocklists
+
+[Learn more about DNS Filtering →](/web-browsing/dns-filtering)
+
+### Browser Extension
+
+Enhanced browser security:
+
+- Real-time page analysis
+- Password protection
+- Safe browsing enforcement
+- User alerts
+
+[Learn more about Browser Extension →](/web-browsing/browser-extension)
+
+## Getting Started
+
+<Steps>
+  <Step title="Configure DNS">
+    Set up DNS filtering with your preferred deployment method.
+  </Step>
+  <Step title="Define Policies">
+    Create blocking policies for your organization.
+  </Step>
+  <Step title="Deploy Extension">
+    Roll out browser extension to endpoints.
+  </Step>
+  <Step title="Monitor Activity">
+    Review reports and fine-tune policies.
+  </Step>
+</Steps>
+
+## Deployment Options
+
+| Method | Use Case |
+|--------|----------|
+| **Device Agent** | Endpoints with Bastion agent |
+| **Browser Extension** | Browser-level protection |
+| **Network DNS** | Router/firewall level |
+| **MDM Profile** | Managed devices (iOS, Android) |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Layer Defenses" icon="layer-group">
+    Use both DNS filtering and browser extension for comprehensive protection.
+  </Accordion>
+  <Accordion title="Start Permissive" icon="door-open">
+    Begin with blocking only threats. Add content categories gradually.
+  </Accordion>
+  <Accordion title="Monitor Before Blocking" icon="eye">
+    Use monitor mode to understand traffic before enforcing blocks.
+  </Accordion>
+  <Accordion title="Communicate Policies" icon="bullhorn">
+    Let employees know what's blocked and why. Provide request process.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="DNS Filtering" icon="shield" href="/web-browsing/dns-filtering">
+    Configure DNS protection
+  </Card>
+  <Card title="Browser Extension" icon="puzzle-piece" href="/web-browsing/browser-extension">
+    Deploy browser security
+  </Card>
+</CardGroup>

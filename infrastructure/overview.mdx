@@ -1,0 +1,165 @@
+---
+title: Infrastructure Overview
+description: 'Monitor your attack surface and manage infrastructure security'
+---
+
+## Introduction
+
+The Infrastructure module provides attack surface management, code security, penetration testing coordination, and typosquatting detection. Understand and reduce your external exposure.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Attack Surface" icon="radar">
+    Discover and monitor external-facing assets
+  </Card>
+  <Card title="Code Security" icon="code">
+    SBOM management and dependency scanning
+  </Card>
+  <Card title="Penetration Testing" icon="user-secret">
+    Coordinate and track pentest campaigns
+  </Card>
+  <Card title="Typosquatting" icon="spell-check">
+    Detect domain impersonation attempts
+  </Card>
+</CardGroup>
+
+## Attack Surface Management
+
+### What is Attack Surface?
+
+Your attack surface includes everything visible to attackers:
+
+- Domains and subdomains
+- IP addresses
+- Web servers and services
+- APIs and endpoints
+- Cloud assets
+
+### Why Monitor?
+
+- Discover forgotten assets
+- Identify misconfigurations
+- Track exposure over time
+- Prioritize remediation
+
+## Module Components
+
+### Assets
+
+Manage your digital asset inventory:
+
+- Domains and subdomains
+- IP addresses
+- Web servers
+- Cloud resources
+
+[Learn more about Assets →](/infrastructure/assets)
+
+### Issues
+
+Track security findings:
+
+- Vulnerability discoveries
+- Configuration issues
+- Exposure risks
+- Remediation status
+
+[Learn more about Issues →](/infrastructure/issues)
+
+### Code Security
+
+Software supply chain security:
+
+- SBOM (Software Bill of Materials)
+- Dependency vulnerabilities
+- Repository monitoring
+
+[Learn more about Code Security →](/infrastructure/code-security)
+
+### Penetration Testing
+
+Manage pentest programs:
+
+- Campaign scheduling
+- Pentester portal
+- Finding management
+- Remediation tracking
+
+[Learn more about Penetration Testing →](/infrastructure/penetration-testing)
+
+### Typosquatting
+
+Domain impersonation detection:
+
+- Similar domain discovery
+- Takedown management
+- Continuous monitoring
+
+[Learn more about Typosquatting →](/infrastructure/typosquatting)
+
+## Getting Started
+
+<Steps>
+  <Step title="Add Domains">
+    Add your primary domains for monitoring.
+  </Step>
+  <Step title="Initial Scan">
+    Bastion discovers subdomains and assets.
+  </Step>
+  <Step title="Review Assets">
+    Verify discovered assets are legitimate.
+  </Step>
+  <Step title="Address Issues">
+    Remediate discovered security issues.
+  </Step>
+  <Step title="Continuous Monitoring">
+    Enable ongoing monitoring for changes.
+  </Step>
+</Steps>
+
+## Dashboard Overview
+
+### Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Total Assets** | Discovered assets |
+| **Open Issues** | Unresolved findings |
+| **High/Critical** | Severe issues |
+| **Exposure Score** | Overall risk rating |
+
+### Quick Actions
+
+- Add new domain
+- Run discovery scan
+- View critical issues
+- Export reports
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with Discovery" icon="magnifying-glass">
+    Begin by discovering what's out there. You can't protect what you don't know about.
+  </Accordion>
+  <Accordion title="Prioritize Findings" icon="sort">
+    Focus on critical and high-severity issues first, especially those exposed to the internet.
+  </Accordion>
+  <Accordion title="Verify Assets" icon="check-circle">
+    Review discovered assets. Flag unknown assets for investigation.
+  </Accordion>
+  <Accordion title="Monitor Continuously" icon="sync">
+    Attack surface changes constantly. Continuous monitoring catches new exposure.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Assets" icon="server" href="/infrastructure/assets">
+    Manage your asset inventory
+  </Card>
+  <Card title="Issues" icon="exclamation-triangle" href="/infrastructure/issues">
+    Review security findings
+  </Card>
+</CardGroup>

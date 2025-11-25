@@ -1,0 +1,266 @@
+---
+title: Phishing Campaigns
+description: 'Test employee awareness with simulated phishing attacks'
+---
+
+## Overview
+
+Phishing Campaigns let you test employee security awareness with realistic phishing simulations. Measure vulnerability, identify training needs, and track improvement over time.
+
+## Why Phishing Simulations?
+
+### The Threat
+
+- **91%** of cyberattacks start with phishing
+- **Average cost** of a phishing breach: $4.65M
+- **Click rates** range from 5-30% even in trained organizations
+
+### Benefits of Simulation
+
+- Measure actual employee behavior
+- Identify high-risk individuals and departments
+- Reinforce training with practical experience
+- Track improvement over time
+- Meet compliance requirements
+
+## Campaign Lifecycle
+
+<Steps>
+  <Step title="Plan">
+    Define campaign goals and target audience.
+  </Step>
+  <Step title="Create">
+    Select templates and configure the campaign.
+  </Step>
+  <Step title="Launch">
+    Send simulated phishing emails.
+  </Step>
+  <Step title="Monitor">
+    Track opens, clicks, and submissions.
+  </Step>
+  <Step title="Report">
+    Analyze results and identify trends.
+  </Step>
+  <Step title="Remediate">
+    Assign training to those who failed.
+  </Step>
+</Steps>
+
+## Creating a Campaign
+
+### Campaign Setup
+
+1. Navigate to **Employees** → **Phishing Campaigns**
+2. Click **Create Campaign**
+3. Configure basics:
+   - Campaign name
+   - Description
+   - Start and end dates
+4. Continue to template selection
+
+### Selecting Templates
+
+Choose phishing templates that match real threats:
+
+| Category | Examples |
+|----------|----------|
+| **Credential Theft** | Fake login pages, password reset |
+| **Business Email** | Invoice requests, executive impersonation |
+| **IT Alerts** | System updates, security warnings |
+| **Social** | LinkedIn, social media notifications |
+| **Seasonal** | Holiday offers, tax season |
+
+### Template Features
+
+Each template includes:
+
+- **Email Template** - The phishing email content
+- **Landing Page** - Where clicks lead (fake login, etc.)
+- **Difficulty Level** - Easy, medium, hard to detect
+- **Indicators** - What makes it suspicious
+
+### Customizing Templates
+
+Personalize templates with:
+
+- Company branding (for realistic scenarios)
+- Employee name and department
+- Custom sender information
+- Modified landing pages
+
+## Target Audience
+
+### Selecting Targets
+
+| Option | Description |
+|--------|-------------|
+| **All Employees** | Company-wide campaign |
+| **By Group** | Specific compliance groups |
+| **By Department** | Target departments |
+| **Random Sample** | Percentage of employees |
+| **Failed Previous** | Those who failed before |
+
+### Exclusions
+
+Exclude employees who:
+
+- Are on leave
+- Recently completed training
+- Were recently tested
+- Are in sensitive roles (with approval)
+
+## Sending Configuration
+
+### Send Options
+
+| Setting | Description |
+|---------|-------------|
+| **Send All At Once** | All emails sent immediately |
+| **Staggered** | Spread over hours/days |
+| **Random Times** | Randomize delivery times |
+| **Working Hours** | Only during business hours |
+
+### Sender Settings
+
+Configure the "from" address:
+
+- Use realistic external domains
+- Internal IT impersonation
+- Vendor/partner impersonation
+
+<Warning>
+  Ensure you have proper authorization before impersonating real companies or individuals.
+</Warning>
+
+## Campaign Monitoring
+
+### Real-Time Dashboard
+
+Monitor campaign progress:
+
+| Metric | Description |
+|--------|-------------|
+| **Sent** | Emails delivered |
+| **Opened** | Email opened (if tracking enabled) |
+| **Clicked** | Link clicked |
+| **Submitted** | Data entered on landing page |
+| **Reported** | Reported as phishing |
+
+### Event Timeline
+
+View individual employee actions:
+
+1. Email delivered (timestamp)
+2. Email opened (timestamp)
+3. Link clicked (timestamp)
+4. Form submitted (timestamp)
+5. Reported as suspicious (timestamp)
+
+## Analytics and Reporting
+
+### Campaign Results
+
+| Metric | Calculation |
+|--------|-------------|
+| **Click Rate** | Clicked / Sent × 100 |
+| **Submission Rate** | Submitted / Sent × 100 |
+| **Report Rate** | Reported / Sent × 100 |
+| **Compromise Rate** | Submitted / Clicked × 100 |
+
+### Comparisons
+
+Compare results:
+
+- Against previous campaigns
+- By department
+- By seniority level
+- Industry benchmarks
+
+### Trend Analysis
+
+Track improvement over time:
+
+- Monthly click rate trends
+- Department improvement
+- Training impact correlation
+
+## Reporting Mechanism
+
+### Employee Reporting
+
+Enable employees to report suspicious emails:
+
+- **Outlook Add-in** - Report button in Outlook
+- **Gmail Add-on** - Report in Gmail
+- **Forward to Address** - Forward to security team
+
+### Report Handling
+
+When employees report:
+
+1. Email analyzed (real threat or simulation)
+2. If simulation: marked as "Reported" in campaign
+3. If real threat: escalated to security team
+4. Employee receives feedback
+
+## Remediation
+
+### Training Assignment
+
+Auto-assign training when employees fail:
+
+1. Enable auto-remediation in campaign settings
+2. Select training course to assign
+3. Set assignment timing (immediately, after campaign)
+4. Configure notifications
+
+### Just-in-Time Training
+
+Immediately after clicking:
+
+1. Employee redirected to educational page
+2. Shows what they missed (phishing indicators)
+3. Short training module on the spot
+4. Tracks completion
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start Easy, Progress Harder" icon="signal">
+    Begin with obvious phishing. Gradually increase difficulty as awareness improves.
+  </Accordion>
+  <Accordion title="Test Regularly" icon="calendar">
+    Monthly or quarterly campaigns maintain awareness. Annual testing isn't enough.
+  </Accordion>
+  <Accordion title="Vary Templates" icon="shuffle">
+    Use different scenarios each campaign. Employees learn to spot specific patterns otherwise.
+  </Accordion>
+  <Accordion title="Focus on Education" icon="graduation-cap">
+    Goal is learning, not punishment. Use failures as teaching moments.
+  </Accordion>
+  <Accordion title="Celebrate Reporting" icon="trophy">
+    Recognize employees who report phishing. Build a culture of reporting.
+  </Accordion>
+</AccordionGroup>
+
+## Compliance
+
+Phishing simulations support:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC2.2, CC9.2 |
+| **ISO 27001** | A.7.2.2 |
+| **PCI DSS** | 12.6.3.1 |
+| **NIST CSF** | PR.AT-1 |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Data Leak" icon="shield-exclamation" href="/employees/data-leak">
+    Monitor for credential breaches
+  </Card>
+  <Card title="Training" icon="graduation-cap" href="/employees/awareness-training">
+    Assign remediation training
+  </Card>
+</CardGroup>

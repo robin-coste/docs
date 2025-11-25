@@ -1,0 +1,243 @@
+---
+title: Device Enrollment
+description: 'Enroll devices with the Bastion agent'
+---
+
+## Overview
+
+Device enrollment adds endpoints to Bastion for management and monitoring. Install the Bastion agent to enable visibility, policy enforcement, and vulnerability scanning.
+
+## Enrollment Methods
+
+### Self-Enrollment
+
+Employees enroll their own devices:
+
+1. Send enrollment link to employee
+2. Employee downloads and installs agent
+3. Device appears in Bastion
+
+### IT Deployment
+
+IT deploys agents centrally:
+
+| Method | Description |
+|--------|-------------|
+| **SCCM/Intune** | Windows enterprise deployment |
+| **Jamf/Munki** | macOS enterprise deployment |
+| **GPO** | Group Policy deployment |
+| **Script** | Command-line installation |
+
+### Pre-configured Images
+
+Include agent in base images:
+
+- Golden image with agent installed
+- Agent auto-registers on first boot
+- Ideal for new device provisioning
+
+## Agent Installation
+
+### Windows
+
+**Download:**
+
+```powershell
+# Download from Bastion portal or run:
+Invoke-WebRequest -Uri "https://download.bastion.io/agent/windows" -OutFile "BastionAgent.msi"
+```
+
+**Install:**
+
+```powershell
+msiexec /i BastionAgent.msi /quiet ENROLLMENT_TOKEN="YOUR_TOKEN"
+```
+
+### macOS
+
+**Download:**
+
+```bash
+curl -O https://download.bastion.io/agent/macos/BastionAgent.pkg
+```
+
+**Install:**
+
+```bash
+sudo installer -pkg BastionAgent.pkg -target /
+# Configure enrollment token
+sudo /usr/local/bin/bastion-agent configure --token "YOUR_TOKEN"
+```
+
+### Linux
+
+**Debian/Ubuntu:**
+
+```bash
+curl -fsSL https://download.bastion.io/agent/linux/install.sh | sudo bash -s -- --token "YOUR_TOKEN"
+```
+
+**RHEL/CentOS:**
+
+```bash
+curl -fsSL https://download.bastion.io/agent/linux/install.sh | sudo bash -s -- --token "YOUR_TOKEN"
+```
+
+## Enrollment Tokens
+
+### Token Types
+
+| Type | Use Case |
+|------|----------|
+| **Global** | Any device can use |
+| **Single-Use** | One device only |
+| **Time-Limited** | Expires after period |
+| **Group-Specific** | Auto-assigns to group |
+
+### Creating Tokens
+
+1. Go to **Devices** → **Enrollment**
+2. Click **Create Token**
+3. Configure token options
+4. Copy token for deployment
+
+## Device Groups
+
+### Automatic Assignment
+
+Assign devices to groups automatically:
+
+| Criteria | Example |
+|----------|---------|
+| **OS Type** | All macOS devices |
+| **Hostname Pattern** | Devices starting with "ENG-" |
+| **Department** | Based on user department |
+| **Location** | Based on IP/network |
+
+### Manual Assignment
+
+Assign devices after enrollment:
+
+1. Select device(s)
+2. Click **Assign to Group**
+3. Select group
+4. Confirm
+
+## Post-Enrollment
+
+### Initial Actions
+
+After enrollment:
+
+1. Device syncs hardware/software inventory
+2. Policies assigned to device
+3. Vulnerability scan initiated
+4. Compliance check performed
+
+### Verification
+
+Confirm successful enrollment:
+
+- Device appears in device list
+- Status shows "Active"
+- Inventory populated
+- Policies applied
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Device Not Appearing" icon="question">
+    - Verify network connectivity
+    - Check enrollment token validity
+    - Review agent logs
+    - Ensure firewall allows outbound connection
+  </Accordion>
+  <Accordion title="Agent Won't Install" icon="exclamation">
+    - Run as administrator
+    - Check disk space
+    - Verify no conflicting software
+    - Review installer logs
+  </Accordion>
+  <Accordion title="Device Shows Offline" icon="power-off">
+    - Check agent service is running
+    - Verify network connectivity
+    - Review firewall rules
+    - Check certificate validity
+  </Accordion>
+</AccordionGroup>
+
+### Agent Logs
+
+**Windows:**
+```
+C:\ProgramData\Bastion\logs\agent.log
+```
+
+**macOS:**
+```
+/var/log/bastion/agent.log
+```
+
+**Linux:**
+```
+/var/log/bastion/agent.log
+```
+
+## Unenrollment
+
+### Removing Devices
+
+1. Select device
+2. Click **Unenroll**
+3. Choose options:
+   - Remove agent (if online)
+   - Wipe data (MDM devices)
+   - Archive device record
+4. Confirm
+
+### Agent Removal
+
+**Windows:**
+```powershell
+msiexec /x BastionAgent.msi /quiet
+```
+
+**macOS:**
+```bash
+sudo /usr/local/bin/bastion-agent uninstall
+```
+
+**Linux:**
+```bash
+sudo /usr/local/bin/bastion-agent uninstall
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use Group Tokens" icon="layer-group">
+    Create tokens per group for automatic assignment. Simplifies deployment.
+  </Accordion>
+  <Accordion title="Monitor Enrollment" icon="chart-line">
+    Track enrollment progress. Follow up on devices that don't enroll.
+  </Accordion>
+  <Accordion title="Test Before Deployment" icon="flask">
+    Test agent on pilot devices before mass deployment.
+  </Accordion>
+  <Accordion title="Document Process" icon="book">
+    Create enrollment guides for self-service scenarios.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Policies" icon="shield" href="/devices/policies">
+    Configure device policies
+  </Card>
+  <Card title="Vulnerabilities" icon="bug" href="/devices/vulnerabilities">
+    Monitor device vulnerabilities
+  </Card>
+</CardGroup>

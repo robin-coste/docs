@@ -1,0 +1,256 @@
+---
+title: DNS Filtering
+description: 'Block malicious and unwanted content at the DNS level'
+---
+
+## Overview
+
+DNS Filtering blocks access to malicious and unwanted websites by intercepting DNS queries. Stop threats before they reach your network.
+
+## How DNS Filtering Works
+
+### Query Flow
+
+```
+1. User types URL → 2. DNS Query → 3. Bastion DNS → 4. Check Policy
+                                                         ↓
+5. Block Page ← (if blocked) ← 6. Response
+         or
+5. Resolved IP ← (if allowed) ← 6. Response
+```
+
+### Protection Layers
+
+| Layer | Protection |
+|-------|------------|
+| **Threat Intelligence** | Known malicious domains |
+| **Category Filtering** | Content categories |
+| **Custom Rules** | Your allow/block lists |
+| **AI Detection** | Newly registered domains |
+
+## Setup
+
+### DNS Configuration
+
+#### Option 1: Device Agent
+
+Endpoints with Bastion agent automatically use filtered DNS:
+
+1. Agent installed on device
+2. DNS automatically configured
+3. No additional setup needed
+
+#### Option 2: Network Level
+
+Configure your network to use Bastion DNS:
+
+**DNS Servers:**
+```
+Primary:   103.247.36.36
+Secondary: 103.247.37.37
+```
+
+Configure at:
+- Router/firewall
+- DHCP server
+- Active Directory DNS
+
+#### Option 3: MDM Profile
+
+Deploy DNS configuration via MDM:
+
+1. Create DNS configuration profile
+2. Set Bastion DNS servers
+3. Deploy to managed devices
+
+### Encrypted DNS
+
+Support for encrypted DNS protocols:
+
+| Protocol | Port | URL |
+|----------|------|-----|
+| **DNS over HTTPS (DoH)** | 443 | `https://dns.bastion.io/dns-query` |
+| **DNS over TLS (DoT)** | 853 | `dns.bastion.io` |
+
+## Filtering Policies
+
+### Default Protection
+
+All accounts include:
+
+- Malware domains
+- Phishing sites
+- Command & control servers
+- Cryptomining sites
+
+### Content Categories
+
+Block content by category:
+
+| Category | Examples |
+|----------|----------|
+| **Adult Content** | Pornography, mature content |
+| **Gambling** | Betting, casinos |
+| **Social Media** | Facebook, Twitter, TikTok |
+| **Streaming** | Netflix, YouTube |
+| **Gaming** | Online games, game platforms |
+| **Shopping** | E-commerce sites |
+
+### Creating Policies
+
+1. Navigate to **Web Browsing** → **DNS Filtering**
+2. Click **Create Policy**
+3. Configure:
+   - Policy name
+   - Block categories
+   - Custom allow/block lists
+   - Target devices/groups
+4. Save and apply
+
+## Custom Rules
+
+### Blocklist
+
+Block specific domains:
+
+1. Go to **Custom Rules** → **Blocklist**
+2. Click **Add Domain**
+3. Enter domain (e.g., `example.com`)
+4. Add description
+5. Save
+
+### Allowlist
+
+Allow specific domains (override blocks):
+
+1. Go to **Custom Rules** → **Allowlist**
+2. Click **Add Domain**
+3. Enter domain
+4. Add description
+5. Save
+
+### Wildcard Support
+
+Use wildcards for subdomain matching:
+
+| Pattern | Matches |
+|---------|---------|
+| `*.example.com` | All subdomains |
+| `example.com` | Domain only |
+| `*example*` | Contains "example" |
+
+## Block Pages
+
+### Custom Block Page
+
+Customize the page users see when blocked:
+
+- Company branding
+- Custom message
+- Request exception link
+- Redirect URL
+
+### Block Page Content
+
+Include:
+
+- Why the site is blocked
+- Category that triggered block
+- How to request access
+- IT contact information
+
+## Exception Requests
+
+### User Requests
+
+Allow users to request exceptions:
+
+1. User visits blocked site
+2. Clicks "Request Access"
+3. Fills request form
+4. Admin reviews and approves/denies
+5. User notified of decision
+
+### Managing Requests
+
+1. Go to **Requests**
+2. Review pending requests
+3. Approve or deny with comment
+4. Temporary or permanent exception
+
+## Reporting
+
+### Dashboard Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Queries** | Total DNS queries |
+| **Blocked** | Queries blocked |
+| **Categories** | Blocks by category |
+| **Top Blocked** | Most blocked domains |
+
+### Query Logs
+
+View detailed query history:
+
+- Timestamp
+- Source device/user
+- Queried domain
+- Action (allowed/blocked)
+- Category matched
+
+### Reports
+
+Generate reports:
+
+- Daily/weekly summaries
+- Top blocked domains
+- Category breakdown
+- User activity (if enabled)
+
+## Integration
+
+### SIEM Integration
+
+Forward DNS logs to SIEM:
+
+- Syslog format
+- CEF format
+- JSON format
+
+### Alerting
+
+Configure alerts for:
+
+- Malware domain access attempts
+- High-volume blocking
+- New threat detections
+- Policy violations
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with Threat Blocking" icon="shield">
+    Enable threat categories first. Add content categories based on policy needs.
+  </Accordion>
+  <Accordion title="Test Before Deploying" icon="flask">
+    Test policies on pilot group before organization-wide deployment.
+  </Accordion>
+  <Accordion title="Maintain Allowlists" icon="list-check">
+    Business-critical sites may get blocked. Maintain an allowlist for exceptions.
+  </Accordion>
+  <Accordion title="Review Regularly" icon="sync">
+    Review blocked queries and exception requests regularly to refine policies.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Browser Extension" icon="puzzle-piece" href="/web-browsing/browser-extension">
+    Add browser-level protection
+  </Card>
+  <Card title="Infrastructure" icon="server" href="/infrastructure/overview">
+    Monitor your attack surface
+  </Card>
+</CardGroup>

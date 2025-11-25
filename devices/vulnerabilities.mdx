@@ -1,0 +1,258 @@
+---
+title: Device Vulnerabilities
+description: 'Monitor and remediate software vulnerabilities on endpoints'
+---
+
+## Overview
+
+Device Vulnerabilities provides continuous vulnerability scanning across your device fleet. Identify CVEs, prioritize remediation, and track patching progress.
+
+## How Scanning Works
+
+### Scan Process
+
+<Steps>
+  <Step title="Software Inventory">
+    Agent collects installed software and versions.
+  </Step>
+  <Step title="CVE Matching">
+    Software matched against vulnerability databases.
+  </Step>
+  <Step title="Risk Scoring">
+    Vulnerabilities scored by severity and exploitability.
+  </Step>
+  <Step title="Reporting">
+    Results displayed in dashboard with remediation guidance.
+  </Step>
+</Steps>
+
+### Data Sources
+
+| Source | Coverage |
+|--------|----------|
+| **NVD** | National Vulnerability Database |
+| **CVE** | Common Vulnerabilities and Exposures |
+| **Vendor Advisories** | Microsoft, Apple, Linux distros |
+| **Exploit DB** | Known exploits |
+
+## Vulnerability Dashboard
+
+### Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Total Vulnerabilities** | Unique CVEs across fleet |
+| **Affected Devices** | Devices with vulnerabilities |
+| **Critical/High** | High-severity issues |
+| **Exploitable** | Known exploit available |
+
+### Vulnerability List
+
+View all vulnerabilities:
+
+- CVE ID and description
+- Severity (CVSS score)
+- Affected software
+- Device count
+- Remediation status
+
+## Severity Scoring
+
+### CVSS Scores
+
+| Score | Severity | Priority |
+|-------|----------|----------|
+| 9.0-10.0 | Critical | Immediate |
+| 7.0-8.9 | High | Within 48 hours |
+| 4.0-6.9 | Medium | Within 2 weeks |
+| 0.1-3.9 | Low | Scheduled patching |
+
+### Additional Factors
+
+Beyond CVSS, consider:
+
+| Factor | Impact |
+|--------|--------|
+| **Known Exploit** | Increases priority |
+| **Internet Facing** | Higher risk |
+| **Critical System** | Higher priority |
+| **Compensating Controls** | May reduce priority |
+
+## Viewing Vulnerabilities
+
+### By Vulnerability
+
+See all devices affected by a specific CVE:
+
+1. Click on vulnerability
+2. View affected devices
+3. See software versions
+4. Access remediation guidance
+
+### By Device
+
+See all vulnerabilities on a specific device:
+
+1. Go to **Devices** → **Device List**
+2. Select device
+3. Go to **Vulnerabilities** tab
+4. View all CVEs for that device
+
+### By Software
+
+See all vulnerabilities for a software package:
+
+1. Go to **Vulnerabilities** → **Software**
+2. Select software
+3. View CVE history
+4. See affected versions
+
+## Remediation
+
+### Remediation Actions
+
+| Action | Description |
+|--------|-------------|
+| **Patch** | Update to fixed version |
+| **Upgrade** | Move to new major version |
+| **Remove** | Uninstall vulnerable software |
+| **Mitigate** | Apply compensating controls |
+| **Accept** | Document risk acceptance |
+
+### Remediation Workflow
+
+<Steps>
+  <Step title="Assess">
+    Review vulnerability details and impact.
+  </Step>
+  <Step title="Plan">
+    Determine remediation approach.
+  </Step>
+  <Step title="Test">
+    Test patch/update in non-production.
+  </Step>
+  <Step title="Deploy">
+    Roll out remediation to affected devices.
+  </Step>
+  <Step title="Verify">
+    Confirm vulnerability is resolved.
+  </Step>
+</Steps>
+
+### Tracking Progress
+
+Track remediation status:
+
+| Status | Meaning |
+|--------|---------|
+| **Open** | Not addressed |
+| **In Progress** | Being remediated |
+| **Resolved** | Successfully remediated |
+| **Accepted** | Risk accepted |
+
+## Automation
+
+### Auto-Patching
+
+Enable automatic patching for:
+
+- Operating system updates
+- Browser updates
+- Common applications
+- Security patches
+
+### Patch Windows
+
+Configure maintenance windows:
+
+1. Go to **Settings** → **Patch Windows**
+2. Define allowed update times
+3. Set restart policies
+4. Configure user notifications
+
+## Exclusions
+
+### Excluding Vulnerabilities
+
+When a vulnerability doesn't apply:
+
+1. Select vulnerability
+2. Click **Exclude**
+3. Choose exclusion type:
+   - Global (all devices)
+   - Device-specific
+   - Temporary (with expiration)
+4. Document reason
+
+### Exclusion Management
+
+Review and manage exclusions:
+
+- List all exclusions
+- Expiration dates
+- Justifications
+- Re-enable as needed
+
+## Reporting
+
+### Vulnerability Reports
+
+Generate reports showing:
+
+- **Summary** - Overview of vulnerability status
+- **Trend** - Changes over time
+- **By Software** - Most vulnerable applications
+- **By Device** - Devices needing attention
+- **SLA** - Time to remediation metrics
+
+### Compliance Evidence
+
+Vulnerability management provides evidence for:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC7.1 |
+| **ISO 27001** | A.12.6.1 |
+| **PCI DSS** | 6.1, 6.2 |
+| **HIPAA** | §164.308(a)(5) |
+
+## Alerts
+
+### Alert Configuration
+
+Set up alerts for:
+
+| Alert Type | Trigger |
+|------------|---------|
+| **New Critical** | Critical CVE discovered |
+| **Exploit Available** | Exploit published for CVE |
+| **SLA Breach** | Vulnerability exceeds SLA |
+| **Regression** | Previously fixed, now present |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Prioritize Ruthlessly" icon="sort">
+    Focus on critical/high with known exploits first. Don't try to fix everything at once.
+  </Accordion>
+  <Accordion title="Maintain Patch Cadence" icon="calendar">
+    Regular patching prevents vulnerability buildup. Monthly at minimum.
+  </Accordion>
+  <Accordion title="Test Before Deploying" icon="flask">
+    Patches can break things. Test in non-production first.
+  </Accordion>
+  <Accordion title="Track SLAs" icon="clock">
+    Set and track remediation SLAs. Critical within 48 hours, High within 2 weeks.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="MDM Query" icon="terminal" href="/devices/mdm-query">
+    Query devices for details
+  </Card>
+  <Card title="Policies" icon="shield" href="/devices/policies">
+    Enforce patching policies
+  </Card>
+</CardGroup>

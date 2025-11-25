@@ -1,0 +1,169 @@
+---
+title: Core Concepts
+description: 'Understand the fundamental concepts of the Bastion platform'
+---
+
+## Platform Architecture
+
+Bastion is built on a modular architecture that allows organizations to adopt only the security capabilities they need while maintaining a unified view of their security posture.
+
+## Workspaces
+
+A **Workspace** represents a single organization or customer environment in Bastion. Each workspace contains:
+
+- Employees and compliance groups
+- Integrations and connected services
+- Compliance frameworks and evidence
+- Security configurations and policies
+- Device inventory and MDM settings
+
+
+## Modules Overview
+
+Bastion's functionality is organized into distinct modules:
+
+<AccordionGroup>
+  <Accordion title="Compliance" icon="shield-check">
+    **Purpose**: Achieve and maintain compliance certifications
+
+    **Components**:
+    - **Frameworks** - SOC 2, ISO 27001, HIPAA, PCI DSS, and custom frameworks
+    - **Audits** - Manage audit cycles with evidence bundles
+    - **Policies** - Create, version, and distribute security policies
+    - **Vendors** - Third-party vendor risk management
+    - **Risk Register** - Track and treat organizational risks
+    - **Access Reviews** - Periodic access control audits
+  </Accordion>
+
+  <Accordion title="Customer Trust" icon="handshake">
+    **Purpose**: Build and demonstrate trust with customers
+
+    **Components**:
+    - **Trust Center** - Public-facing security information portal
+    - **Security Questionnaires** - Automated questionnaire responses
+    - **Status Page** - Public incident and status communication
+  </Accordion>
+
+  <Accordion title="Employees" icon="users">
+    **Purpose**: Manage employee security posture
+
+    **Components**:
+    - **People** - Employee directory synced from identity providers
+    - **Groups** - Organize employees for training and access management
+    - **Awareness Training** - Security education programs
+    - **Phishing Campaigns** - Simulated phishing exercises
+    - **Data Leak** - Monitor for employee credential breaches
+  </Accordion>
+
+  <Accordion title="SaaS" icon="cloud">
+    **Purpose**: Manage cloud application security
+
+    **Components**:
+    - **Third-Party Apps** - Inventory of SaaS applications
+    - **Shadow IT Detection** - Discover unauthorized apps
+    - **Risk Assessment** - Evaluate app security posture
+  </Accordion>
+
+  <Accordion title="Devices" icon="laptop">
+    **Purpose**: Endpoint management and security
+
+    **Components**:
+    - **Device List** - Enrolled endpoint inventory
+    - **Policies** - MDM configuration policies
+    - **Vulnerabilities** - Device vulnerability scanning
+    - **MDM Query** - OSQuery-based device interrogation
+  </Accordion>
+
+  <Accordion title="Web Browsing" icon="globe">
+    **Purpose**: Browser and DNS security
+
+    **Components**:
+    - **DNS Filtering** - Block malicious domains
+    - **Browser Extension** - Enforce browsing policies
+  </Accordion>
+
+  <Accordion title="Infrastructure" icon="server">
+    **Purpose**: Attack surface management
+
+    **Components**:
+    - **Assets** - Domain, subdomain, and IP inventory
+    - **Issues** - Security vulnerability tracking
+    - **Code Security** - SBOM and dependency management
+    - **Penetration Testing** - Pentest campaign management
+    - **Typosquatting** - Domain squatting detection
+  </Accordion>
+</AccordionGroup>
+
+## User Roles
+
+Bastion uses role-based access control (RBAC):
+
+| Role | Description | Access Level |
+|------|-------------|--------------|
+| **Admin** | Full platform access | All modules and settings |
+| **Compliance Manager** | Compliance-focused access | Compliance, policies, audits |
+| **Security Analyst** | Security monitoring | Infrastructure, devices, monitoring |
+| **Employee** | Limited access | Training, assigned tasks |
+
+## Integrations
+
+Integrations connect Bastion to your existing tools:
+
+### Identity Providers
+- Azure Active Directory
+- Okta
+- Google Workspace
+
+### ITSM Tools
+- Jira
+- ServiceNow
+
+### Cloud Services
+- Microsoft 365
+- Google Workspace
+
+### Version Control
+- GitHub
+- GitLab
+
+<Card title="See All Integrations" icon="plug" href="/integrations/overview">
+  View the complete list of supported integrations
+</Card>
+
+## Data Model
+
+### Compliance Groups
+
+Groups organize employees for:
+- Training assignment
+- Phishing campaign targeting
+- Access review scoping
+- Policy distribution
+
+### Evidence
+
+Compliance evidence is:
+- Automatically collected from integrations
+- Manually uploaded for custom controls
+- Versioned and timestamped
+- Linked to specific framework controls
+
+### Policies
+
+Policies flow through a lifecycle:
+1. **Draft** - Initial creation
+2. **Review** - Stakeholder review
+3. **Approved** - Ready for distribution
+4. **Distributed** - Sent to employees
+5. **Acknowledged** - Employee confirmation
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Navigation Guide" icon="compass" href="/navigation">
+    Learn how to navigate the Bastion interface
+  </Card>
+  <Card title="Compliance Setup" icon="shield-check" href="/compliance/overview">
+    Start your compliance journey
+  </Card>
+</CardGroup>

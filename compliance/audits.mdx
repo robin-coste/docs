@@ -1,0 +1,192 @@
+---
+title: Audits
+description: 'Prepare for and manage compliance audits with organized evidence'
+---
+
+## Overview
+
+The Audits section helps you prepare for, execute, and track compliance audits. Organize evidence, collaborate with auditors, and maintain audit history.
+
+## Audit Lifecycle
+
+<Steps>
+  <Step title="Planning">
+    Schedule the audit and define scope with your auditor.
+  </Step>
+  <Step title="Preparation">
+    Collect evidence and prepare documentation.
+  </Step>
+  <Step title="Fieldwork">
+    Auditor reviews evidence and conducts testing.
+  </Step>
+  <Step title="Reporting">
+    Receive audit report and address findings.
+  </Step>
+  <Step title="Closure">
+    Complete remediation and close the audit.
+  </Step>
+</Steps>
+
+## Creating an Audit
+
+1. Navigate to **Compliance** → **Audits**
+2. Click **Create Audit**
+3. Fill in audit details:
+   - **Name** - Descriptive name (e.g., "SOC 2 Type II 2024")
+   - **Framework** - Select the target framework
+   - **Period** - Start and end dates of audit period
+   - **Auditor** - External audit firm
+   - **Due Date** - Target completion date
+4. Click **Create**
+
+## Audit Dashboard
+
+The audit dashboard shows:
+
+| Section | Description |
+|---------|-------------|
+| **Status** | Current audit phase |
+| **Progress** | Evidence collection progress |
+| **Evidence** | Collected and pending evidence |
+| **Issues** | Open findings and requests |
+| **Timeline** | Upcoming milestones |
+
+## Evidence Bundles
+
+Evidence bundles organize documentation for auditor review:
+
+### Creating a Bundle
+
+1. Open the audit
+2. Click **Create Evidence Bundle**
+3. Select controls to include
+4. Add relevant evidence to each control
+5. Review and finalize
+
+### Bundle Contents
+
+Each bundle contains:
+
+- **Control Listing** - All in-scope controls
+- **Evidence** - Documents, screenshots, exports
+- **Test Results** - Automated and manual test outcomes
+- **Notes** - Context and explanations
+
+## Auditor Portal
+
+External auditors access evidence through a secure portal:
+
+### Portal Features
+
+- **Read-Only Access** - Auditors cannot modify data
+- **Evidence Review** - Browse and download evidence
+- **Request System** - Request additional information
+- **Comment Thread** - Communication with compliance team
+
+### Inviting Auditors
+
+1. Open the audit
+2. Click **Manage Auditors**
+3. Enter auditor email addresses
+4. Select permission level
+5. Send invitation
+
+<Warning>
+  Auditor accounts are separate from regular user accounts. Auditors only see audit-related information.
+</Warning>
+
+## Managing Requests
+
+### Information Requests
+
+Auditors may request additional information:
+
+1. Review request in the audit dashboard
+2. Gather required evidence or documentation
+3. Upload response and mark as addressed
+4. Auditor reviews and closes request
+
+### Request Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Open** | Awaiting response |
+| **Submitted** | Response provided, awaiting review |
+| **Accepted** | Auditor satisfied |
+| **Needs Revision** | Additional information required |
+
+## Findings and Remediation
+
+### Audit Findings
+
+Auditors may identify findings:
+
+- **Observations** - Minor issues or recommendations
+- **Exceptions** - Control failures during audit period
+- **Deficiencies** - Significant control weaknesses
+
+### Remediation Process
+
+<Steps>
+  <Step title="Review Finding">
+    Understand the finding and its impact.
+  </Step>
+  <Step title="Create Remediation Plan">
+    Document steps to address the finding.
+  </Step>
+  <Step title="Implement Changes">
+    Execute the remediation plan.
+  </Step>
+  <Step title="Collect Evidence">
+    Document the remediation actions.
+  </Step>
+  <Step title="Close Finding">
+    Submit evidence and close the finding.
+  </Step>
+</Steps>
+
+## Audit History
+
+### Past Audits
+
+View completed audits:
+
+- **Audit Reports** - Final audit reports
+- **Evidence Archives** - Point-in-time evidence
+- **Findings History** - Past findings and remediation
+
+### Continuous Improvement
+
+Use audit history to:
+
+- Track improvement over time
+- Identify recurring issues
+- Prepare for future audits
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start Early" icon="clock">
+    Begin audit preparation at least 2-3 months before fieldwork. This provides time to address gaps and gather comprehensive evidence.
+  </Accordion>
+  <Accordion title="Maintain Ongoing Readiness" icon="sync">
+    Don't treat compliance as a point-in-time activity. Continuously collect evidence and maintain controls throughout the year.
+  </Accordion>
+  <Accordion title="Communicate Proactively" icon="comments">
+    Keep your auditor informed of any changes or issues. Surprises during fieldwork create delays and complications.
+  </Accordion>
+  <Accordion title="Document Everything" icon="file-alt">
+    When in doubt, document it. Better to have too much evidence than too little.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Policies" icon="file-contract" href="/compliance/policies">
+    Ensure required policies are in place
+  </Card>
+  <Card title="Access Reviews" icon="user-check" href="/compliance/access-reviews">
+    Conduct access reviews for audit evidence
+  </Card>
+</CardGroup>

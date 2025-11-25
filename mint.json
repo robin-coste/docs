@@ -1,0 +1,132 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Bastion",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#215BC4",
+    "light": "#266DF0",
+    "dark": "#184AA5",
+    "anchors": {
+      "from": "#215BC4",
+      "to": "#266DF0"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@yourbastion.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://app.yourbastion.com"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://yourbastion.com/community"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://yourbastion.com/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "concepts",
+        "navigation"
+      ]
+    },
+    {
+      "group": "Compliance",
+      "pages": [
+        "compliance/overview",
+        "compliance/frameworks",
+        "compliance/audits",
+        "compliance/policies",
+        "compliance/vendors",
+        "compliance/risk-register",
+        "compliance/access-reviews"
+      ]
+    },
+    {
+      "group": "Customer Trust",
+      "pages": [
+        "customer-trust/overview",
+        "customer-trust/trust-center",
+        "customer-trust/security-questionnaire",
+        "customer-trust/status-page"
+      ]
+    },
+    {
+      "group": "Employees",
+      "pages": [
+        "employees/overview",
+        "employees/people",
+        "employees/awareness-training",
+        "employees/phishing-campaigns",
+        "employees/data-leak"
+      ]
+    },
+    {
+      "group": "SaaS",
+      "pages": [
+        "saas/overview",
+        "saas/third-party-apps"
+      ]
+    },
+    {
+      "group": "Devices",
+      "pages": [
+        "devices/overview",
+        "devices/enrollment",
+        "devices/policies",
+        "devices/vulnerabilities",
+        "devices/mdm-query"
+      ]
+    },
+    {
+      "group": "Web Browsing",
+      "pages": [
+        "web-browsing/overview",
+        "web-browsing/dns-filtering",
+        "web-browsing/browser-extension"
+      ]
+    },
+    {
+      "group": "Infrastructure",
+      "pages": [
+        "infrastructure/overview",
+        "infrastructure/assets",
+        "infrastructure/issues",
+        "infrastructure/code-security",
+        "infrastructure/penetration-testing",
+        "infrastructure/typosquatting"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/overview",
+        "integrations/identity",
+        "integrations/itsm",
+        "integrations/cloud",
+        "integrations/vcs"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/yourbastion",
+    "linkedin": "https://linkedin.com/company/yourbastion"
+  }
+}

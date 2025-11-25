@@ -1,0 +1,215 @@
+---
+title: Access Reviews
+description: 'Conduct periodic access control reviews for compliance'
+---
+
+## Overview
+
+Access Reviews help you periodically verify that users have appropriate access to systems and data. Regular access reviews are a key compliance requirement for frameworks like SOC 2, ISO 27001, and HIPAA.
+
+## Why Access Reviews?
+
+Access reviews address common security risks:
+
+- **Privilege Creep** - Users accumulate access over time
+- **Orphan Accounts** - Access remains after role changes
+- **Excessive Permissions** - More access than needed
+- **Compliance Requirements** - Required by most frameworks
+
+## Access Review Process
+
+<Steps>
+  <Step title="Define Scope">
+    Determine which systems and users to review.
+  </Step>
+  <Step title="Collect Access Data">
+    Gather current access information from systems.
+  </Step>
+  <Step title="Assign Reviewers">
+    Assign managers or owners to review access.
+  </Step>
+  <Step title="Conduct Review">
+    Reviewers approve or revoke access.
+  </Step>
+  <Step title="Remediate">
+    Remove inappropriate access.
+  </Step>
+  <Step title="Document">
+    Record review results for compliance.
+  </Step>
+</Steps>
+
+## Creating Access Reviews
+
+### Review Campaigns
+
+1. Navigate to **Compliance** → **Access Reviews**
+2. Click **Create Review**
+3. Configure the review:
+   - **Name** - Descriptive campaign name
+   - **Scope** - Systems to review
+   - **Reviewers** - Who will review (managers, system owners)
+   - **Due Date** - Review deadline
+   - **Frequency** - One-time or recurring
+4. Click **Create**
+
+### Review Scope Options
+
+| Scope Type | Description |
+|------------|-------------|
+| **All Users** | Review all user access |
+| **By Group** | Review specific compliance groups |
+| **By System** | Review access to specific systems |
+| **Privileged** | Review only privileged access |
+| **New Access** | Review recently granted access |
+
+## Automated Data Collection
+
+### Integration-Based Collection
+
+With connected integrations, Bastion automatically collects:
+
+- **Identity Provider** - User accounts and group memberships
+- **Cloud Services** - Application access and roles
+- **Code Repositories** - Repository permissions
+- **SaaS Applications** - Application entitlements
+
+### Manual Data Entry
+
+For systems without integrations:
+
+1. Open the review
+2. Click **Add Access Data**
+3. Upload access listing (CSV format)
+4. Map columns to access fields
+
+## Conducting Reviews
+
+### Reviewer Experience
+
+Reviewers see a list of user access to evaluate:
+
+| Column | Description |
+|--------|-------------|
+| **User** | Employee name |
+| **System** | Application or system |
+| **Access Level** | Permission or role |
+| **Last Used** | Recent access activity |
+| **Granted Date** | When access was granted |
+| **Decision** | Approve or Revoke |
+
+### Review Actions
+
+| Action | Meaning |
+|--------|---------|
+| **Approve** | Access is appropriate |
+| **Revoke** | Access should be removed |
+| **Flag** | Needs further investigation |
+| **Delegate** | Assign to another reviewer |
+
+### Bulk Actions
+
+For efficiency:
+- Select multiple rows
+- Apply bulk approve/revoke
+- Add comments to bulk actions
+
+## Remediation
+
+### Handling Revocations
+
+When access is revoked:
+
+1. Revocation creates a task
+2. Task assigned to system owner or IT
+3. Owner removes access in the system
+4. Marks task complete in Bastion
+5. Verification confirms removal
+
+### Remediation Tracking
+
+Monitor remediation progress:
+
+- **Pending** - Awaiting removal
+- **In Progress** - Removal underway
+- **Completed** - Access removed
+- **Verified** - Removal confirmed
+
+## Review Reports
+
+### Completion Reports
+
+Generate reports showing:
+
+- **Coverage** - Users and systems reviewed
+- **Decisions** - Approve vs. revoke breakdown
+- **Completion Rate** - Percentage reviewed
+- **Reviewer Performance** - Reviews by reviewer
+
+### Audit Evidence
+
+Access review documentation includes:
+
+- Review scope and methodology
+- Complete decision records
+- Remediation evidence
+- Timestamps and reviewer identities
+
+## Recurring Reviews
+
+### Setting Up Recurrence
+
+Schedule automatic review campaigns:
+
+| Frequency | Use Case |
+|-----------|----------|
+| **Quarterly** | Critical systems, privileged access |
+| **Semi-Annual** | Standard systems |
+| **Annual** | Low-risk systems |
+
+### Recurrence Configuration
+
+1. Open existing review
+2. Click **Schedule Recurrence**
+3. Select frequency
+4. Set start date for next review
+5. Configure notifications
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Review Privileged Access More Often" icon="crown">
+    Admin and privileged accounts should be reviewed quarterly or more frequently due to their elevated risk.
+  </Accordion>
+  <Accordion title="Involve the Right Reviewers" icon="users">
+    Managers should review their direct reports. System owners should review system-specific access.
+  </Accordion>
+  <Accordion title="Set Realistic Deadlines" icon="calendar">
+    Give reviewers enough time to make informed decisions, but not so long that reviews become stale.
+  </Accordion>
+  <Accordion title="Enforce Completion" icon="check-circle">
+    Follow up on incomplete reviews. Incomplete reviews don't satisfy compliance requirements.
+  </Accordion>
+</AccordionGroup>
+
+## Compliance Mapping
+
+Access reviews provide evidence for:
+
+| Framework | Requirements |
+|-----------|-------------|
+| **SOC 2** | CC6.1, CC6.2, CC6.3 |
+| **ISO 27001** | A.9.2.5, A.9.2.6 |
+| **HIPAA** | §164.308(a)(4) |
+| **PCI DSS** | 7.1, 7.2 |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Frameworks" icon="list-check" href="/compliance/frameworks">
+    Map reviews to compliance controls
+  </Card>
+  <Card title="People" icon="users" href="/employees/people">
+    Manage employee groups for reviews
+  </Card>
+</CardGroup>

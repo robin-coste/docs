@@ -1,0 +1,256 @@
+---
+title: People
+description: 'Import and manage employees for security programs'
+---
+
+## Overview
+
+The People section is your central employee directory for security management. Import employees from identity providers, organize them into groups, and track security-related tasks.
+
+## Tabs Overview
+
+| Tab | Purpose |
+|-----|---------|
+| **Users** | Employee directory and management |
+| **Groups** | Compliance groups for training and campaigns |
+| **Tasks** | Access management and onboarding tasks |
+
+## Users
+
+### Employee Directory
+
+View all employees with:
+
+- Name and email
+- Department and title
+- Group memberships
+- Training status
+- Last activity
+
+### Importing Employees
+
+#### From Identity Provider
+
+1. Navigate to **Employees** → **People**
+2. Click **Import Users**
+3. Select your identity integration:
+   - Azure Active Directory
+   - Okta
+   - Google Workspace
+4. Configure import settings:
+   - Include/exclude groups
+   - Sync frequency
+   - Attribute mapping
+5. Confirm import
+
+#### Manual Import
+
+For employees not in your identity provider:
+
+1. Click **Add User**
+2. Enter employee details:
+   - Name
+   - Email
+   - Department
+   - Title
+3. Save
+
+#### CSV Import
+
+For bulk manual import:
+
+1. Click **Import** → **CSV**
+2. Download template
+3. Fill in employee data
+4. Upload completed CSV
+5. Review and confirm
+
+### Employee Details
+
+Click on an employee to view:
+
+- **Profile** - Contact information
+- **Groups** - Group memberships
+- **Training** - Assigned and completed training
+- **Phishing** - Phishing campaign results
+- **Tasks** - Assigned security tasks
+
+### Employee Actions
+
+| Action | Description |
+|--------|-------------|
+| **Edit** | Update employee information |
+| **Disable** | Deactivate without deleting |
+| **Delete** | Remove from system |
+| **Assign Training** | Add training courses |
+| **Add to Group** | Add to compliance groups |
+
+## Compliance Groups
+
+### Why Groups?
+
+Groups help you:
+
+- Target training to specific departments
+- Scope phishing campaigns appropriately
+- Manage access reviews by team
+- Apply policies to subsets of employees
+
+### Creating Groups
+
+1. Navigate to **People** → **Groups**
+2. Click **Create Group**
+3. Configure:
+   - Group name
+   - Description
+   - Member criteria
+4. Save
+
+### Group Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Manual** | Manually assigned members | Executive team |
+| **Rule-Based** | Auto-populated by criteria | Engineering department |
+| **Synced** | Mirrors identity provider group | AD Security Group |
+
+### Rule-Based Groups
+
+Automatically populate groups based on:
+
+- Department equals "Engineering"
+- Title contains "Manager"
+- Location is "Remote"
+- Hire date within 90 days
+
+### Managing Group Members
+
+**Add Members:**
+1. Open group
+2. Click **Add Members**
+3. Search and select employees
+4. Confirm
+
+**Remove Members:**
+1. Open group
+2. Select member(s)
+3. Click **Remove from Group**
+
+## Tasks
+
+### Task Types
+
+| Task Type | Source | Action |
+|-----------|--------|--------|
+| **Access Provision** | Onboarding | Grant system access |
+| **Access Revocation** | Offboarding | Remove system access |
+| **Access Review** | Compliance | Verify access appropriateness |
+| **Training Assignment** | Training module | Complete security training |
+
+### Task Workflow
+
+<Steps>
+  <Step title="Task Created">
+    Task is created automatically or manually.
+  </Step>
+  <Step title="Assignment">
+    Task assigned to appropriate owner.
+  </Step>
+  <Step title="Action">
+    Owner completes required action.
+  </Step>
+  <Step title="Verification">
+    Action verified and task closed.
+  </Step>
+</Steps>
+
+### Managing Tasks
+
+**View Tasks:**
+- Filter by status, type, assignee
+- Sort by due date or priority
+- Export task list
+
+**Complete Tasks:**
+1. Open task
+2. Perform required action
+3. Add completion notes
+4. Mark complete
+
+## Sync Settings
+
+### Automatic Sync
+
+Configure identity provider sync:
+
+| Setting | Options |
+|---------|---------|
+| **Frequency** | Hourly, Daily, Weekly |
+| **Scope** | All users, specific groups |
+| **Actions** | Create, update, disable |
+| **Notifications** | Sync status alerts |
+
+### Sync History
+
+View past syncs:
+
+- Sync timestamp
+- Users added/updated/removed
+- Errors encountered
+- Sync duration
+
+### Conflict Resolution
+
+When sync conflicts occur:
+
+- **Identity Provider Wins** - IdP data overwrites
+- **Bastion Wins** - Keep Bastion data
+- **Manual Review** - Flag for review
+
+## Offboarding
+
+### Automated Offboarding
+
+When employees leave:
+
+1. Identity provider sync detects removal
+2. Employee marked for offboarding
+3. Access revocation tasks created
+4. Training assignments cleared
+5. Account disabled
+
+### Offboarding Checklist
+
+- [ ] Revoke system access
+- [ ] Remove from groups
+- [ ] Clear pending tasks
+- [ ] Archive employee data
+- [ ] Document offboarding date
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Keep Directory Updated" icon="sync">
+    Regular sync ensures accurate employee data. Stale data leads to security gaps.
+  </Accordion>
+  <Accordion title="Use Meaningful Groups" icon="layer-group">
+    Create groups that align with how you manage security. Department-based is common.
+  </Accordion>
+  <Accordion title="Close Tasks Promptly" icon="check">
+    Unactioned access tasks are security risks. Set SLAs and monitor completion.
+  </Accordion>
+  <Accordion title="Audit Regularly" icon="clipboard-list">
+    Review group memberships and access periodically to catch errors.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Awareness Training" icon="graduation-cap" href="/employees/awareness-training">
+    Deploy training to employees
+  </Card>
+  <Card title="Phishing Campaigns" icon="fish" href="/employees/phishing-campaigns">
+    Test employee awareness
+  </Card>
+</CardGroup>

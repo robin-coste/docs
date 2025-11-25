@@ -1,0 +1,247 @@
+---
+title: Penetration Testing
+description: 'Coordinate and manage penetration testing campaigns'
+---
+
+## Overview
+
+The Penetration Testing module helps you plan, execute, and track penetration testing campaigns. Coordinate with pentesters, manage findings, and track remediation.
+
+## Why Penetration Testing?
+
+### Beyond Automated Scanning
+
+- **Human Intelligence** - Creative attack paths
+- **Business Logic** - Application-specific flaws
+- **Chained Attacks** - Multi-step exploits
+- **Real-World Validation** - Proof of exploitability
+
+### Compliance Requirements
+
+Many frameworks require pentesting:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | Periodic testing |
+| **PCI DSS** | Annual + after changes |
+| **ISO 27001** | Regular testing |
+| **HIPAA** | Technical evaluation |
+
+## Campaign Management
+
+### Creating a Campaign
+
+1. Navigate to **Infrastructure** → **Penetration Testing**
+2. Click **Create Campaign**
+3. Configure:
+   - Campaign name
+   - Scope definition
+   - Start/end dates
+   - Pentester assignment
+4. Save
+
+### Campaign Types
+
+| Type | Scope | Duration |
+|------|-------|----------|
+| **Web Application** | Specific application | 1-2 weeks |
+| **Network** | Internal/external network | 1-2 weeks |
+| **Mobile** | Mobile applications | 1-2 weeks |
+| **Cloud** | Cloud infrastructure | 1-2 weeks |
+| **Full** | Comprehensive | 3-4 weeks |
+
+### Scope Definition
+
+Define what's in scope:
+
+- Target domains/IPs
+- Applications
+- Authentication credentials
+- Out-of-scope exclusions
+- Testing restrictions
+
+## Pentester Portal
+
+### Portal Access
+
+External pentesters access via dedicated portal:
+
+1. Navigate to **Settings** → **Pentester Portal**
+2. Click **Invite Pentester**
+3. Enter pentester email
+4. Assign to campaign
+5. Send invitation
+
+### Portal Features
+
+Pentesters can:
+
+- View scope and rules
+- Submit findings
+- Upload evidence
+- Communicate with team
+
+### Portal Permissions
+
+| Permission | Access |
+|------------|--------|
+| **View** | See campaign details |
+| **Submit** | Submit findings |
+| **Comment** | Add comments |
+| **Upload** | Attach evidence |
+
+## Finding Management
+
+### Submitting Findings
+
+Pentesters submit findings with:
+
+| Field | Description |
+|-------|-------------|
+| **Title** | Brief description |
+| **Severity** | Critical, High, Medium, Low |
+| **Description** | Full details |
+| **Steps to Reproduce** | Exploitation steps |
+| **Evidence** | Screenshots, videos, logs |
+| **Recommendation** | Remediation guidance |
+
+### Finding Workflow
+
+```
+Submitted → Triaged → Confirmed → In Progress → Fixed → Verified → Closed
+```
+
+### Finding Review
+
+When findings are submitted:
+
+1. Review for accuracy
+2. Assess severity
+3. Confirm exploitability
+4. Assign to remediation team
+5. Track resolution
+
+## Evidence Management
+
+### Evidence Types
+
+- Screenshots
+- Video recordings
+- Request/response logs
+- Exploit code (redacted)
+- Tool output
+
+### Evidence Storage
+
+Evidence is:
+
+- Encrypted at rest
+- Access controlled
+- Retention managed
+- Audit logged
+
+## Reporting
+
+### Campaign Report
+
+At campaign completion:
+
+- Executive summary
+- Finding summary
+- Detailed findings
+- Remediation status
+- Trend comparison
+
+### Report Formats
+
+| Format | Use Case |
+|--------|----------|
+| **Executive** | Leadership briefing |
+| **Technical** | Engineering team |
+| **Compliance** | Audit evidence |
+
+## Remediation Tracking
+
+### Tracking Progress
+
+Monitor remediation:
+
+- Open findings by severity
+- SLA compliance
+- Aging findings
+- Remediation velocity
+
+### Retest Coordination
+
+Coordinate retesting:
+
+1. Mark finding as fixed
+2. Request retest
+3. Pentester validates
+4. Confirm or reopen
+
+## Campaign History
+
+### Past Campaigns
+
+View completed campaigns:
+
+- Campaign details
+- All findings
+- Remediation status
+- Reports
+
+### Trend Analysis
+
+Track improvements:
+
+- Finding counts over time
+- Severity trends
+- Time to remediation
+- Recurring issues
+
+## Integration
+
+### Issue Integration
+
+Findings sync with Issues module:
+
+- Automatic issue creation
+- Status synchronization
+- Unified remediation tracking
+
+### ITSM Integration
+
+Create tickets in:
+
+- Jira
+- ServiceNow
+- Linear
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Test Regularly" icon="calendar">
+    Annual testing is minimum. Quarterly is better. After major changes is essential.
+  </Accordion>
+  <Accordion title="Define Scope Clearly" icon="bullseye">
+    Ambiguous scope leads to missed vulnerabilities or wasted time. Be specific.
+  </Accordion>
+  <Accordion title="Communicate Continuously" icon="comments">
+    Regular communication with pentesters ensures focus on priorities.
+  </Accordion>
+  <Accordion title="Track Remediation" icon="chart-line">
+    Pentests are only valuable if findings are fixed. Track to completion.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Typosquatting" icon="spell-check" href="/infrastructure/typosquatting">
+    Detect domain impersonation
+  </Card>
+  <Card title="Issues" icon="exclamation-triangle" href="/infrastructure/issues">
+    Manage all security findings
+  </Card>
+</CardGroup>

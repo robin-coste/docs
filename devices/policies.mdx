@@ -1,0 +1,243 @@
+---
+title: Device Policies
+description: 'Create and deploy MDM policies to enforce security configurations'
+---
+
+## Overview
+
+Device Policies let you define and enforce security configurations across your device fleet. Create policies for different device groups and monitor compliance.
+
+## Policy Types
+
+### Configuration Profiles
+
+| Type | Purpose |
+|------|---------|
+| **Security Baseline** | Core security settings |
+| **Password Policy** | Password requirements |
+| **Encryption** | Disk encryption requirements |
+| **Firewall** | Firewall configuration |
+| **Software Restrictions** | Allowed/blocked applications |
+| **Network** | VPN, WiFi, proxy settings |
+
+### Compliance Policies
+
+Define what makes a device compliant:
+
+- Operating system version
+- Encryption enabled
+- Antivirus installed
+- Latest patches applied
+- No prohibited software
+
+## Creating Policies
+
+### Policy Wizard
+
+1. Navigate to **Devices** → **Policies**
+2. Click **Create Policy**
+3. Select policy type
+4. Configure settings
+5. Define scope (device groups)
+6. Review and save
+
+### Policy Settings
+
+Each policy type has specific settings:
+
+**Password Policy Example:**
+
+| Setting | Value |
+|---------|-------|
+| Minimum Length | 12 characters |
+| Require Complexity | Yes |
+| Maximum Age | 90 days |
+| History | Last 5 passwords |
+| Lockout Threshold | 5 attempts |
+
+**Encryption Policy Example:**
+
+| Setting | Value |
+|---------|-------|
+| Require Encryption | Yes |
+| Algorithm | AES-256 |
+| Recovery Key | Escrow to Bastion |
+| Grace Period | 7 days |
+
+## Policy Assignment
+
+### Assignment Methods
+
+| Method | Description |
+|--------|-------------|
+| **By Group** | Apply to device group |
+| **By OS** | Apply to OS type |
+| **By User** | Apply to user's devices |
+| **All Devices** | Global policy |
+
+### Assignment Priority
+
+When multiple policies apply:
+
+1. Device-specific (highest priority)
+2. Group policies
+3. OS policies
+4. Global policies (lowest priority)
+
+### Conflicts
+
+When settings conflict:
+
+- More restrictive setting wins
+- Manual override available
+- Conflicts flagged in dashboard
+
+## Deployment
+
+### Deployment Modes
+
+| Mode | Behavior |
+|------|----------|
+| **Enforce** | Settings applied automatically |
+| **Monitor** | Check compliance, don't enforce |
+| **Report** | Log only, no compliance impact |
+
+### Rollout Strategies
+
+<Steps>
+  <Step title="Test Group">
+    Deploy to pilot devices first.
+  </Step>
+  <Step title="Monitor Mode">
+    Watch for issues without enforcing.
+  </Step>
+  <Step title="Gradual Rollout">
+    Expand to more groups over time.
+  </Step>
+  <Step title="Full Enforcement">
+    Enable enforcement organization-wide.
+  </Step>
+</Steps>
+
+## Compliance Monitoring
+
+### Compliance Dashboard
+
+View compliance status:
+
+- Overall compliance percentage
+- Non-compliant devices
+- Policy-specific compliance
+- Trend over time
+
+### Compliance States
+
+| State | Meaning |
+|-------|---------|
+| **Compliant** | Meets all policy requirements |
+| **Non-Compliant** | Fails one or more requirements |
+| **Pending** | Policy being applied |
+| **Error** | Failed to evaluate |
+| **Not Applicable** | Policy doesn't apply |
+
+### Non-Compliance Details
+
+For non-compliant devices:
+
+- Which settings failed
+- Current vs. required value
+- Remediation guidance
+- Time since non-compliance
+
+## Remediation
+
+### Auto-Remediation
+
+Some settings can auto-remediate:
+
+| Setting | Auto-Remediation |
+|---------|-----------------|
+| Firewall enabled | ✅ Can enable |
+| Encryption enabled | ⚠️ Requires user action |
+| Password policy | ⚠️ Requires password change |
+| Software installed | ✅ Can install |
+| Software removed | ⚠️ Requires confirmation |
+
+### Manual Remediation
+
+For settings requiring action:
+
+1. Notify device owner
+2. Provide remediation steps
+3. Set deadline for compliance
+4. Follow up on non-compliance
+
+## Policy Templates
+
+### Built-in Templates
+
+Start with pre-built templates:
+
+| Template | Description |
+|----------|-------------|
+| **CIS Benchmark** | Industry-standard baselines |
+| **SOC 2 Baseline** | SOC 2 compliance settings |
+| **HIPAA Baseline** | Healthcare requirements |
+| **Remote Worker** | Settings for remote devices |
+
+### Custom Templates
+
+Create reusable templates:
+
+1. Configure policy
+2. Click **Save as Template**
+3. Name and describe template
+4. Use for new policies
+
+## Reporting
+
+### Policy Reports
+
+Generate reports showing:
+
+- Policy compliance summary
+- Device-level details
+- Trend analysis
+- Non-compliance breakdown
+
+### Evidence for Audits
+
+Policy documentation includes:
+
+- Policy configuration
+- Assignment history
+- Compliance history
+- Remediation records
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with Baselines" icon="shield-check">
+    Use industry baselines (CIS, NIST) as starting points. Customize from there.
+  </Accordion>
+  <Accordion title="Test Before Enforcement" icon="flask">
+    Always test policies in monitor mode before enforcing.
+  </Accordion>
+  <Accordion title="Communicate Changes" icon="bullhorn">
+    Notify users before policy changes that affect their experience.
+  </Accordion>
+  <Accordion title="Document Exceptions" icon="file-alt">
+    When devices need exceptions, document the business justification.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Vulnerabilities" icon="bug" href="/devices/vulnerabilities">
+    Monitor device vulnerabilities
+  </Card>
+  <Card title="MDM Query" icon="terminal" href="/devices/mdm-query">
+    Query devices directly
+  </Card>
+</CardGroup>

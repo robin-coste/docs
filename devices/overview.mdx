@@ -1,0 +1,164 @@
+---
+title: Devices Overview
+description: 'Endpoint management, security policies, and vulnerability monitoring'
+---
+
+## Introduction
+
+The Devices module provides comprehensive endpoint management for your organization. Enroll devices, deploy security policies, scan for vulnerabilities, and ensure device compliance.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Device Enrollment" icon="laptop">
+    Enroll Windows, macOS, and Linux devices with the Bastion agent
+  </Card>
+  <Card title="Policy Management" icon="shield">
+    Deploy MDM policies to enforce security configurations
+  </Card>
+  <Card title="Vulnerability Scanning" icon="bug">
+    Continuous scanning for software vulnerabilities
+  </Card>
+  <Card title="MDM Query" icon="terminal">
+    Run OSQuery commands for detailed device interrogation
+  </Card>
+</CardGroup>
+
+## Why Device Management?
+
+### Endpoint Security Challenges
+
+- **Remote Work** - Devices outside corporate network
+- **BYOD** - Personal devices accessing corporate data
+- **Patch Management** - Keeping software updated
+- **Compliance** - Enforcing security baselines
+
+### Benefits
+
+- Visibility into all endpoints
+- Consistent security configurations
+- Rapid vulnerability response
+- Compliance evidence generation
+
+## Module Components
+
+### Device List
+
+Central inventory of all enrolled devices:
+
+- Device details and specifications
+- Compliance status
+- Security posture
+- Last check-in time
+
+[Learn more about Device Enrollment →](/devices/enrollment)
+
+### Policies
+
+MDM policies for security enforcement:
+
+- Configuration profiles
+- Security baselines
+- Application restrictions
+- Feature controls
+
+[Learn more about Policies →](/devices/policies)
+
+### Vulnerabilities
+
+Continuous vulnerability monitoring:
+
+- CVE detection
+- Severity scoring
+- Remediation guidance
+- Patch tracking
+
+[Learn more about Vulnerabilities →](/devices/vulnerabilities)
+
+### MDM Query
+
+Advanced device interrogation:
+
+- OSQuery interface
+- Real-time queries
+- Saved query library
+- Query scheduling
+
+[Learn more about MDM Query →](/devices/mdm-query)
+
+## Supported Platforms
+
+| Platform | Agent | Features |
+|----------|-------|----------|
+| **Windows 10/11** | Full | All features |
+| **macOS** | Full | All features |
+| **Linux** | Partial | Inventory, vulnerabilities |
+| **iOS** | MDM | Configuration profiles |
+| **Android** | MDM | Configuration profiles |
+
+## Getting Started
+
+<Steps>
+  <Step title="Download Agent">
+    Download the Bastion agent for your platform.
+  </Step>
+  <Step title="Install on Devices">
+    Deploy the agent to endpoints.
+  </Step>
+  <Step title="Create Policies">
+    Define security policies for your environment.
+  </Step>
+  <Step title="Assign Policies">
+    Apply policies to device groups.
+  </Step>
+  <Step title="Monitor Compliance">
+    Track device compliance in the dashboard.
+  </Step>
+</Steps>
+
+## Device Dashboard
+
+### Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **Total Devices** | Enrolled device count |
+| **Compliant** | Devices meeting policy |
+| **Non-Compliant** | Devices failing policy |
+| **Vulnerable** | Devices with vulnerabilities |
+| **Offline** | Devices not checking in |
+
+### Quick Actions
+
+- Enroll new device
+- Run compliance scan
+- Deploy policy update
+- Export device report
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with Visibility" icon="eye">
+    Focus on enrollment first. You can't secure what you can't see.
+  </Accordion>
+  <Accordion title="Policy Gradually" icon="stairs">
+    Roll out policies in stages. Start with monitoring, then enforcement.
+  </Accordion>
+  <Accordion title="Prioritize Vulnerabilities" icon="sort">
+    Focus on critical and exploited vulnerabilities first.
+  </Accordion>
+  <Accordion title="Regular Check-ins" icon="sync">
+    Ensure devices check in regularly. Stale data indicates problems.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Device Enrollment" icon="plus" href="/devices/enrollment">
+    Start enrolling devices
+  </Card>
+  <Card title="Policies" icon="shield" href="/devices/policies">
+    Create security policies
+  </Card>
+</CardGroup>

@@ -1,0 +1,266 @@
+---
+title: Third-Party Applications
+description: 'Inventory and manage SaaS applications across your organization'
+---
+
+## Overview
+
+The Third-Party Applications page provides a complete inventory of SaaS applications in use across your organization. Discover shadow IT, assess risks, and manage your SaaS portfolio.
+
+## Application Inventory
+
+### Viewing Applications
+
+Navigate to **SaaS** → **Third-Party Applications**
+
+Each application shows:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | Application name |
+| **Category** | App type (productivity, finance, etc.) |
+| **Users** | Number of users |
+| **Risk Level** | Security risk rating |
+| **Status** | Approved, pending, blocked |
+| **Last Used** | Most recent access |
+
+### Application Details
+
+Click an app to view:
+
+- **Overview** - App description and website
+- **Security** - Security features and certifications
+- **Users** - Employees using the app
+- **Permissions** - OAuth scopes granted
+- **History** - Usage over time
+
+## Discovery
+
+### How Apps Are Discovered
+
+| Method | Apps Found |
+|--------|------------|
+| **OAuth Grants** | Apps with API access |
+| **SSO Logins** | Apps accessed via SSO |
+| **Email Activity** | Apps sending notifications |
+| **Browser Data** | Apps accessed via browser |
+
+### Discovery Settings
+
+Configure discovery:
+
+1. Go to **Settings** → **Discovery**
+2. Enable/disable discovery methods
+3. Set scan frequency
+4. Configure exclusions
+
+## Risk Assessment
+
+### Risk Scoring
+
+Apps are scored on:
+
+| Factor | Weight |
+|--------|--------|
+| **Security Certifications** | SOC 2, ISO 27001 |
+| **Data Handling** | Encryption, retention |
+| **Access Controls** | MFA, SSO support |
+| **Company Profile** | Size, age, reputation |
+| **Permissions Requested** | OAuth scopes |
+
+### Risk Levels
+
+| Level | Score | Description |
+|-------|-------|-------------|
+| **Low** | 0-3 | Minimal security concerns |
+| **Medium** | 4-6 | Some concerns, review needed |
+| **High** | 7-8 | Significant concerns |
+| **Critical** | 9-10 | Major security risks |
+
+### Manual Assessment
+
+Override automated scores:
+
+1. Open application
+2. Click **Edit Assessment**
+3. Adjust risk factors
+4. Add notes
+5. Save
+
+## Application Status
+
+### Status Options
+
+| Status | Meaning |
+|--------|---------|
+| **Approved** | Authorized for use |
+| **Pending** | Awaiting review |
+| **Blocked** | Not authorized |
+| **Under Review** | Being evaluated |
+
+### Changing Status
+
+1. Select application(s)
+2. Click **Change Status**
+3. Select new status
+4. Add reason
+5. Confirm
+
+### Bulk Actions
+
+Manage multiple apps:
+
+- Bulk approve
+- Bulk block
+- Bulk assign for review
+
+## User Management
+
+### Viewing App Users
+
+See who uses each app:
+
+- User list
+- Access level/role
+- Last access date
+- Total usage time
+
+### Revoking Access
+
+Remove user access:
+
+1. Open application
+2. Go to **Users** tab
+3. Select user(s)
+4. Click **Revoke Access**
+5. Confirm revocation
+
+<Warning>
+  Revoking access may require action in the connected identity provider or the application itself.
+</Warning>
+
+## OAuth Permissions
+
+### Understanding Permissions
+
+OAuth apps request permissions (scopes):
+
+| Permission | Risk |
+|------------|------|
+| **Read email** | Medium - can see email content |
+| **Send email** | High - can send as user |
+| **Access files** | High - can read documents |
+| **Manage users** | Critical - admin access |
+
+### Reviewing Permissions
+
+1. Open application
+2. Go to **Permissions** tab
+3. Review requested scopes
+4. Assess necessity and risk
+
+### Revoking OAuth Tokens
+
+Revoke app access entirely:
+
+1. Open application
+2. Click **Revoke OAuth Access**
+3. Confirm revocation
+4. Access removed across all users
+
+## Categories
+
+### Application Categories
+
+| Category | Examples |
+|----------|----------|
+| **Productivity** | Notion, Asana, Monday |
+| **Communication** | Slack, Zoom, Teams |
+| **Development** | GitHub, Jira, Figma |
+| **Finance** | QuickBooks, Expensify |
+| **Marketing** | HubSpot, Mailchimp |
+| **Security** | 1Password, Okta |
+| **Storage** | Dropbox, Box, Google Drive |
+
+### Custom Categories
+
+Create custom categories:
+
+1. Go to **Settings** → **Categories**
+2. Click **Add Category**
+3. Enter name and description
+4. Assign apps to category
+
+## Alerts
+
+### Alert Configuration
+
+Set up alerts for:
+
+| Alert Type | Trigger |
+|------------|---------|
+| **New App** | New application discovered |
+| **High Risk** | High-risk app detected |
+| **Sensitive Access** | Sensitive permissions granted |
+| **Excessive Users** | App exceeds user threshold |
+
+### Managing Alerts
+
+1. Go to **Settings** → **Alerts**
+2. Enable desired alert types
+3. Configure recipients
+4. Set frequency
+
+## Reporting
+
+### Available Reports
+
+- **App Inventory** - Complete application list
+- **Risk Summary** - Apps by risk level
+- **User Access** - Who uses what
+- **Trend Report** - Changes over time
+- **Shadow IT** - Unapproved applications
+
+### Export Options
+
+- PDF report
+- Excel spreadsheet
+- CSV data
+
+## Compliance
+
+SaaS management supports:
+
+| Framework | Requirement |
+|-----------|-------------|
+| **SOC 2** | CC6.7 |
+| **ISO 27001** | A.13.2.4 |
+| **GDPR** | Art. 28 (processors) |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Create Clear Policies" icon="file-contract">
+    Define what makes an app "approved" and communicate to employees.
+  </Accordion>
+  <Accordion title="Review High-Risk First" icon="sort">
+    Prioritize review of high-risk and high-user apps.
+  </Accordion>
+  <Accordion title="Provide Alternatives" icon="arrows-alt-h">
+    When blocking an app, suggest approved alternatives to avoid friction.
+  </Accordion>
+  <Accordion title="Monitor Continuously" icon="sync">
+    New apps appear regularly. Continuous monitoring catches shadow IT.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Devices" icon="laptop" href="/devices/overview">
+    Manage endpoint security
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/cloud">
+    Connect cloud services
+  </Card>
+</CardGroup>
